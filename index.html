@@ -1,748 +1,576 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-    <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NHCM89S6QH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/amz.png">
+    <link rel="shortcut icon" type="image/png" href="/assets/amz.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/amz.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>XLeats</title>
 
-  gtag('config', 'G-NHCM89S6QH');
-</script>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <meta name="theme-color" content="#3a3a3a">
-        <meta name="facebook-domain-verification" content="dqwn7mrj3kj08iewa58vang19yoewd">
-        <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin="">
-        <link rel="preload" href="smartbiz/cdn/shop/t/5/assets/theme.css?v=146451627821806555361665489047" as="style">
-        <link rel="preload" as="font" href="smartbiz/cdn/fonts/montserrat/montserrat_n4.1d581f6d4bf1a97f4cbc0b88b933bc136d38d178.woff2?h1=bG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=bG90dXNmb29kcy5jb20&amp;hmac=0a8222c56ed13f983567d3bba24fd39b1b65e1f37d0b876c3437d2200883b482" type="font/woff2" crossorigin="">
-        <link rel="preload" as="font" href="smartbiz/cdn/fonts/montserrat/montserrat_n4.1d581f6d4bf1a97f4cbc0b88b933bc136d38d178.woff2?h1=bG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=bG90dXNmb29kcy5jb20&amp;hmac=0a8222c56ed13f983567d3bba24fd39b1b65e1f37d0b876c3437d2200883b482" type="font/woff2" crossorigin="">
-        <link rel="preload" as="font" href="smartbiz/cdn/fonts/montserrat/montserrat_n7.c496e9cf2031deec4c4bca338faa81971c8631d4.woff2?h1=bG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h2=bG90dXNmb29kcy5jb20&amp;hmac=ee51c36fe01f13f317567b175604bbea3507bf4f5664c52a97eb793ece317e5a" type="font/woff2" crossorigin="">
-        <link rel="preload" href="smartbiz/cdn/shop/t/5/assets/theme.js?v=12930364863115508631661404850" as="script">
-        <link rel="preload" href="smartbiz/cdn/shop/t/5/assets/lazysizes.js?v=63098554868324070131658832484" as="script">
-        <title>XL Eats</title>
-        <meta name="description" content="Smartbiz XL Eats connects the XLRI community with top local eateries, offering a curated selection of delicious, quality meals tailored for campus life. With an easy-to-use platform, we streamline the food ordering process, ensuring quick access to a diverse range of flavors. Discover Jamshedpur’s finest dishes right at your fingertips!">
-        <!-- /snippets/social-meta-tags.liquid -->
-        <meta property="og:site_name" content="XL Eats (Powered by SmartBiz)">
-        <meta property="og:title" content="XL Eats">
-        <meta property="og:type" content="Service">
-        <meta property="og:description" content="Smartbiz XL Eats connects the XLRI community with top local eateries, offering a curated selection of delicious, quality meals tailored for campus life. With an easy-to-use platform, we streamline the food ordering process, ensuring quick access to a diverse range of flavors. Discover Jamshedpur’s finest dishes right at your fingertips!">
-        <meta property="og:image" content="assets/half.png">
-        <meta property="og:image:secure_url" content="assets/half.png">
-        <meta property="og:image:width" content="200">
-        <meta property="og:image:height" content="200">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
-        <link rel="icon" type="image/png" href="assets/amz.png">
-        <style data-shopify="">
+    <!-- Meta tags for social sharing -->
+    <meta property="og:title" content="XLeats">
+    <meta property="og:description" content="XLeats - Powered by SmartBiz">
+    <meta property="og:image" content="/api/placeholder/1200/630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="XLeats">
+    <meta name="twitter:description" content="XLeats - Powered by SmartBiz">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .tile-container a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        /* Optional: Add hover effect to indicate clickability */
+        .tile-container a:hover {
+            cursor: pointer;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        :root {
+            --header-height: 70px;
+            --footer-height: 70px;
+        }
+        .hero-title, .tile-name, .highlight {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 clamp(1rem, 4vw, 4rem);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            width: clamp(80px, 10vw, 100px);
+            height: clamp(40px, 5vw, 50px);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-right {
+            display: flex;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #2d3436;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+
+        nav {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: clamp(2rem, 4vw, 4rem);
+            align-items: center;
+        }
+
+        nav a {
+            color: #2d3436;
+            text-decoration: none;
+            font-size: clamp(1rem, 1.5vw, 1.15rem);
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 50%;
+            background-color: #2d3436;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .partner-button {
+            background: linear-gradient(135deg, #ff9f43, #ff6b6b);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1rem;
+        }
+        .partner-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 159, 67, 0.5);
+        }
+
+        /* Main Content Styles */
+        main {
+            flex: 1;
+            background-color: #ffffff;
+            background-image: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1.5rem clamp(1rem, 2vw, 2rem);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            height: calc(100vh - var(--header-height) - var(--footer-height));
+        }
+
+        /* Hero Banner Styles */
+        .hero-banner {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            animation: fadeInUp 0.8s ease-out forwards;
+            height: auto;
+            max-height: 240px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .hero-title {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            color: #2d3436;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            line-height: 1.2;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, #ff6b6b, #ffa502);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .hero-text {
+            font-size: clamp(0.9rem, 1.2vw, 1rem);
+            color: #636e72;
+            line-height: 1.6;
+        }
+
+        .hero-text, .tile-name {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: clamp(1rem, 1.2vw, 1.1rem);
+            line-height: 1.6;
+        }
+
+        .copyright, .contact-info {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 400px;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Tile Container Styles */
+        .tile-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(1rem, 2vw, 1.5rem);
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 2vw, 2rem);
+        }
+
+        .tile {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            aspect-ratio: 3/4;
+            height: auto;
+        }
+
+        .tile:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .tile-image {
+            height: 80%;
+            padding: 1rem;
+        }
+
+        .tile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .tile-name {
+            height: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            color: #2d3436;
+            letter-spacing: 0.5px;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: clamp(1rem, 1.2vw, 1.1rem);
+            line-height: 1.6;
+        }
+
+        /* Footer Styles */
+        footer {
+            height: var(--footer-height);
+            background-color: white;
+            color: #2d3436;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 clamp(1rem, 4vw, 4rem);
+            font-size: clamp(0.8rem, 1vw, 0.9rem);
+            box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        .footer-logo {
+            width: clamp(60px, 8vw, 80px);
+            height: clamp(30px, 4vw, 40px);
+        }
+
+        .footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
             :root {
-            --color-text: #3a3a3a;
-            --color-text-rgb: 58, 58, 58;
-            --color-body-text: #333232;
-            --color-sale-text: #EA0606;
-            --color-small-button-text-border: #3a3a3a;
-            --color-text-field: #ffffff;
-            --color-text-field-text: #000000;
-            --color-text-field-text-rgb: 0, 0, 0;
-            --color-btn-primary: #3a3a3a;
-            --color-btn-primary-darker: #212121;
-            --color-btn-primary-text: #ffffff;
-            --color-blankstate: rgba(51, 50, 50, 0.35);
-            --color-blankstate-border: rgba(51, 50, 50, 0.2);
-            --color-blankstate-background: rgba(51, 50, 50, 0.1);
-            --color-text-focus:#606060;
-            --color-overlay-text-focus:#e6e6e6;
-            --color-btn-primary-focus:#606060;
-            --color-btn-social-focus:#d2d2d2;
-            --color-small-button-text-border-focus:#606060;
-            --predictive-search-focus:#f2f2f2;
-            --color-body: #ffffff;
-            --color-bg: #ffffff;
-            --color-bg-rgb: 255, 255, 255;
-            --color-bg-alt: rgba(51, 50, 50, 0.05);
-            --color-bg-currency-selector: rgba(51, 50, 50, 0.2);
-            --color-overlay-title-text: #ffffff;
-            --color-image-overlay: #685858;
-            --color-image-overlay-rgb: 104, 88, 88;--opacity-image-overlay: 0.4;--hover-overlay-opacity: 0.8;
-            --color-border: #ebebeb;
-            --color-border-form: #cccccc;
-            --color-border-form-darker: #b3b3b3;
-            --svg-select-icon: url(smartbiz/cdn/shop/t/5/assets/ico-select_v%3D29003672709104678581658832484.svg);
-            --slick-img-url: url(smartbiz/cdn/shop/t/5/assets/ajax-loader_v%3D41356863302472015721658832484.gif);
-            --font-weight-body--bold: 700;
-            --font-weight-body--bolder: 700;
-            --font-stack-header: Montserrat, sans-serif;
-            --font-style-header: normal;
-            --font-weight-header: 400;
-            --font-stack-body: Montserrat, sans-serif;
-            --font-style-body: normal;
-            --font-weight-body: 400;
-            --font-size-header: 26;
-            --font-size-base: 15;
-            --font-h1-desktop: 35;
-            --font-h1-mobile: 32;
-            --font-h2-desktop: 20;
-            --font-h2-mobile: 18;
-            --font-h3-mobile: 20;
-            --font-h4-desktop: 17;
-            --font-h4-mobile: 15;
-            --font-h5-desktop: 15;
-            --font-h5-mobile: 13;
-            --font-h6-desktop: 14;
-            --font-h6-mobile: 12;
-            --font-mega-title-large-desktop: 65;
-            --font-rich-text-large: 17;
-            --font-rich-text-small: 13;
-            --color-video-bg: #f2f2f2;
-            --global-color-image-loader-primary: rgba(58, 58, 58, 0.06);
-            --global-color-image-loader-secondary: rgba(58, 58, 58, 0.12);
+                --header-height: auto;
+                --footer-height: auto;
             }
-        </style>
-        <style>*,::after,::before{box-sizing:border-box}body{margin:0}body,html{background-color:var(--color-body)}body,button{font-size:calc(var(--font-size-base) * 1px);font-family:var(--font-stack-body);font-style:var(--font-style-body);font-weight:var(--font-weight-body);color:var(--color-text);line-height:1.5}body,button{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}.border-bottom{border-bottom:1px solid var(--color-border)}.btn--link{background-color:transparent;border:0;margin:0;color:var(--color-text);text-align:left}.text-right{text-align:right}.icon{display:inline-block;width:20px;height:20px;vertical-align:middle;fill:currentColor}.icon__fallback-text,.visually-hidden{position:absolute!important;overflow:hidden;clip:rect(0 0 0 0);height:1px;width:1px;margin:-1px;padding:0;border:0}svg.icon:not(.icon--full-color) circle,svg.icon:not(.icon--full-color) ellipse,svg.icon:not(.icon--full-color) g,svg.icon:not(.icon--full-color) line,svg.icon:not(.icon--full-color) path,svg.icon:not(.icon--full-color) polygon,svg.icon:not(.icon--full-color) polyline,svg.icon:not(.icon--full-color) rect,symbol.icon:not(.icon--full-color) circle,symbol.icon:not(.icon--full-color) ellipse,symbol.icon:not(.icon--full-color) g,symbol.icon:not(.icon--full-color) line,symbol.icon:not(.icon--full-color) path,symbol.icon:not(.icon--full-color) polygon,symbol.icon:not(.icon--full-color) polyline,symbol.icon:not(.icon--full-color) rect{fill:inherit;stroke:inherit}li{list-style:none}.list--inline{padding:0;margin:0}.list--inline>li{display:inline-block;margin-bottom:0;vertical-align:middle}a{color:var(--color-text);text-decoration:none}.h1,.h2,h1,h2{margin:0 0 17.5px;font-family:var(--font-stack-header);font-style:var(--font-style-header);font-weight:var(--font-weight-header);line-height:1.2;overflow-wrap:break-word;word-wrap:break-word}.h1 a,.h2 a,h1 a,h2 a{color:inherit;text-decoration:none;font-weight:inherit}.h1,h1{font-size:calc(((var(--font-h1-desktop))/ (var(--font-size-base))) * 1em);text-transform:none;letter-spacing:0}@media only screen and (max-width:749px){.h1,h1{font-size:calc(((var(--font-h1-mobile))/ (var(--font-size-base))) * 1em)}}.h2,h2{font-size:calc(((var(--font-h2-desktop))/ (var(--font-size-base))) * 1em);text-transform:uppercase;letter-spacing:.1em}@media only screen and (max-width:749px){.h2,h2{font-size:calc(((var(--font-h2-mobile))/ (var(--font-size-base))) * 1em)}}p{color:var(--color-body-text);margin:0 0 19.44444px}@media only screen and (max-width:749px){p{font-size:calc(((var(--font-size-base) - 1)/ (var(--font-size-base))) * 1em)}}p:last-child{margin-bottom:0}@media only screen and (max-width:749px){.small--hide{display:none!important}}.grid{list-style:none;margin:0;padding:0;margin-left:-30px}.grid::after{content:'';display:table;clear:both}@media only screen and (max-width:749px){.grid{margin-left:-22px}}.grid::after{content:'';display:table;clear:both}.grid--no-gutters{margin-left:0}.grid--no-gutters .grid__item{padding-left:0}.grid--table{display:table;table-layout:fixed;width:100%}.grid--table>.grid__item{float:none;display:table-cell;vertical-align:middle}.grid__item{float:left;padding-left:30px;width:100%}@media only screen and (max-width:749px){.grid__item{padding-left:22px}}.grid__item[class*="--push"]{position:relative}@media only screen and (min-width:750px){.medium-up--one-quarter{width:25%}.medium-up--push-one-third{width:33.33%}.medium-up--one-half{width:50%}.medium-up--push-one-third{left:33.33%;position:relative}}.site-header{position:relative;background-color:var(--color-body)}@media only screen and (max-width:749px){.site-header{border-bottom:1px solid var(--color-border)}}@media only screen and (min-width:750px){.site-header{padding:0 55px}.site-header.logo--center{padding-top:30px}}.site-header__logo{margin:15px 0}.logo-align--center .site-header__logo{text-align:center;margin:0 auto}@media only screen and (max-width:749px){.logo-align--center .site-header__logo{text-align:left;margin:15px 0}}@media only screen and (max-width:749px){.site-header__logo{padding-left:22px;text-align:left}.site-header__logo img{margin:0}}.site-header__logo-link{display:inline-block;word-break:break-word}@media only screen and (min-width:750px){.logo-align--center .site-header__logo-link{margin:0 auto}}.site-header__logo-image{display:block}@media only screen and (min-width:750px){.site-header__logo-image{margin:0 auto}}.site-header__logo-image img{width:100%}.site-header__logo-image--centered img{margin:0 auto}.site-header__logo img{display:block}.site-header__icons{position:relative;white-space:nowrap}@media only screen and (max-width:749px){.site-header__icons{width:auto;padding-right:13px}.site-header__icons .btn--link,.site-header__icons .site-header__cart{font-size:calc(((var(--font-size-base))/ (var(--font-size-base))) * 1em)}}.site-header__icons-wrapper{position:relative;display:-webkit-flex;display:-ms-flexbox;display:flex;width:100%;-ms-flex-align:center;-webkit-align-items:center;-moz-align-items:center;-ms-align-items:center;-o-align-items:center;align-items:center;-webkit-justify-content:flex-end;-ms-justify-content:flex-end;justify-content:flex-end}.site-header__account,.site-header__cart,.site-header__search{position:relative}.site-header__search.site-header__icon{display:none}@media only screen and (min-width:1400px){.site-header__search.site-header__icon{display:block}}.site-header__search-toggle{display:block}@media only screen and (min-width:750px){.site-header__account,.site-header__cart{padding:10px 11px}}.site-header__cart-title,.site-header__search-title{position:absolute!important;overflow:hidden;clip:rect(0 0 0 0);height:1px;width:1px;margin:-1px;padding:0;border:0;display:block;vertical-align:middle}.site-header__cart-title{margin-right:3px}.site-header__cart-count{display:flex;align-items:center;justify-content:center;position:absolute;right:.4rem;top:.2rem;font-weight:700;background-color:var(--color-btn-primary);color:var(--color-btn-primary-text);border-radius:50%;min-width:1em;height:1em}.site-header__cart-count span{font-family:HelveticaNeue,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:calc(11em / 16);line-height:1}@media only screen and (max-width:749px){.site-header__cart-count{top:calc(7em / 16);right:0;border-radius:50%;min-width:calc(19em / 16);height:calc(19em / 16)}}@media only screen and (max-width:749px){.site-header__cart-count span{padding:.25em calc(6em / 16);font-size:12px}}.site-header__menu{display:none}@media only screen and (max-width:749px){.site-header__icon{display:inline-block;vertical-align:middle;padding:10px 11px;margin:0}}@media only screen and (min-width:750px){.site-header__icon .icon-search{margin-right:3px}}.announcement-bar{z-index:10;position:relative;text-align:center;border-bottom:1px solid transparent;padding:2px}.announcement-bar__link{display:block}.announcement-bar__message{display:block;padding:11px 22px;font-size:calc(((16)/ (var(--font-size-base))) * 1em);font-weight:var(--font-weight-header)}@media only screen and (min-width:750px){.announcement-bar__message{padding-left:55px;padding-right:55px}}.site-nav{position:relative;padding:0;text-align:center;margin:25px 0}.site-nav a{padding:3px 10px}.site-nav__link{display:block;white-space:nowrap}.site-nav--centered .site-nav__link{padding-top:0}.site-nav__link .icon-chevron-down{width:calc(8em / 16);height:calc(8em / 16);margin-left:.5rem}.site-nav__label{border-bottom:1px solid transparent}.site-nav__link--active .site-nav__label{border-bottom-color:var(--color-text)}.site-nav__link--button{border:none;background-color:transparent;padding:3px 10px}.site-header__mobile-nav{z-index:11;position:relative;background-color:var(--color-body)}@media only screen and (max-width:749px){.site-header__mobile-nav{display:-webkit-flex;display:-ms-flexbox;display:flex;width:100%;-ms-flex-align:center;-webkit-align-items:center;-moz-align-items:center;-ms-align-items:center;-o-align-items:center;align-items:center}}.mobile-nav--open .icon-close{display:none}.main-content{opacity:0}.main-content .shopify-section{display:none}.main-content .shopify-section:first-child{display:inherit}.critical-hidden{display:none}</style>
-        <link rel="stylesheet" href="smartbiz/cdn/shop/t/5/assets/theme_v%3D146451627821806555361665489047.css" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
-        <style>
-            @font-face {
-            font-family: Montserrat;
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-            src: url("smartbiz/dn/fonts/montserrat/montserrat_n4.1d581f6d4bf1a97f4cbc0b88b933bc136d38d178_h1%3DbG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20%26h2%3DbG90dXNmb29kcy5jb20%26hmac%3D0a8222c56ed13f983567d3bba24fd39b1b65e1f37d0b876c3437d2200883b482.woff2") format("woff2"),
-            url("smartbiz/cdn/fonts/montserrat/montserrat_n4.cfce41a967758ce5a9b7d48daeb5b028fd977a9b_h1%3DbG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20%26h2%3DbG90dXNmb29kcy5jb20%26hmac%3D6edb514f9592db169e06da0eda5f3db0ca2b0168b63635ec0228639636711d90.woff") format("woff");
+
+            header {
+                flex-direction: row;
+                padding: 1rem;
+                justify-content: space-between;
+                height: 70px;
             }
-            @font-face {
-            font-family: Montserrat;
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-            src: url("smartbiz/cdn/fonts/montserrat/montserrat_n4.1d581f6d4bf1a97f4cbc0b88b933bc136d38d178_h1%3DbG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20%26h2%3DbG90dXNmb29kcy5jb20%26hmac%3D0a8222c56ed13f983567d3bba24fd39b1b65e1f37d0b876c3437d2200883b482.woff2") format("woff2"),
-            url("smartbiz/cdn/fonts/montserrat/montserrat_n4.cfce41a967758ce5a9b7d48daeb5b028fd977a9b_h1%3DbG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20%26h2%3DbG90dXNmb29kcy5jb20%26hmac%3D6edb514f9592db169e06da0eda5f3db0ca2b0168b63635ec0228639636711d90.woff") format("woff");
+
+            .logo-container {
+                margin: 0;
             }
-            @font-face {
-            font-family: Montserrat;
-            font-weight: 700;
-            font-style: normal;
-            font-display: swap;
-            src: url("smartbiz/cdn/fonts/montserrat/montserrat_n7.c496e9cf2031deec4c4bca338faa81971c8631d4_h1%3DbG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20%26h2%3DbG90dXNmb29kcy5jb20%26hmac%3Dee51c36fe01f13f317567b175604bbea3507bf4f5664c52a97eb793ece317e5a.woff2") format("woff2"),
-            url("smartbiz/cdn/fonts/montserrat/montserrat_n7.78b0223375c94b39ce1af7e09a0225f2bb3d05f7_h1%3DbG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20%26h2%3DbG90dXNmb29kcy5jb20%26hmac%3D7a7e38054a3623db6314b562916ac2032aa41f9c4cd285b6f1db67b1ff26a8d1.woff") format("woff");
+
+            .logo-right {
+                display: none;
             }
-            @font-face {
-            font-family: Montserrat;
-            font-weight: 700;
-            font-style: normal;
-            font-display: swap;
-            src: url("smartbiz/cdn/fonts/montserrat/montserrat_n7.c496e9cf2031deec4c4bca338faa81971c8631d4_h1%3DbG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20%26h2%3DbG90dXNmb29kcy5jb20%26hmac%3Dee51c36fe01f13f317567b175604bbea3507bf4f5664c52a97eb793ece317e5a.woff2") format("woff2"),
-            url("smartbiz/cdn/fonts/montserrat/montserrat_n7.78b0223375c94b39ce1af7e09a0225f2bb3d05f7_h1%3DbG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20%26h2%3DbG90dXNmb29kcy5jb20%26hmac%3D7a7e38054a3623db6314b562916ac2032aa41f9c4cd285b6f1db67b1ff26a8d1.woff") format("woff");
+
+            .hamburger {
+                display: flex;
             }
-            @font-face {
-            font-family: Montserrat;
-            font-weight: 400;
-            font-style: italic;
-            font-display: swap;
-            src: url("smartbiz/cdn/fonts/montserrat/montserrat_i4.ae02483b3d5e8777d0d4a4ccf396482c364d8955_h1%3DbG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20%26h2%3DbG90dXNmb29kcy5jb20%26hmac%3D50c8bbe8bfcc20628c385ca8cb1f50d00e4e44ae7474142743e8d1a9e9624f41.woff2") format("woff2"),
-            url("smartbiz/cdn/fonts/montserrat/montserrat_i4.ba28d1a04ec09448de486d83c63235903dfc0af8_h1%3DbG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20%26h2%3DbG90dXNmb29kcy5jb20%26hmac%3D89479cbca21eae26a2c72791730f63f36fea3c272cefd6e2db6638d0aa4c87ae.woff") format("woff");
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                transform: none;
+                background: white;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
             }
-            @font-face {
-            font-family: Montserrat;
-            font-weight: 700;
-            font-style: italic;
-            font-display: swap;
-            src: url("smartbiz/cdn/fonts/montserrat/montserrat_i7.83866c3eec90071fa974c17980ffb42977f9e667_h1%3DbG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20%26h2%3DbG90dXNmb29kcy5jb20%26hmac%3Da476e864d4d251183a083bb8dc8546b19374e26dd5c8220e085ea8cea9f8b362.woff2") format("woff2"),
-            url("smartbiz/cdn/fonts/montserrat/montserrat_i7.25524241b12d864609c85325613d60efcf1a87e3_h1%3DbG90dXNmb29kc2luYy5hY2NvdW50Lm15c2hvcGlmeS5jb20%26h2%3DbG90dXNmb29kcy5jb20%26hmac%3D1900e499686106d8f72151dcf91ea6193655ac9ce8ec115226db4c60571dd133.woff") format("woff");
+
+            nav.active {
+                max-height: 200px;
             }
-        </style>
-        <script>const moneyFormat = "${{amount}}"
-            var theme = {
-                  
-                  stylesheet: "//smartbiz/cdn/shop/t/5/assets/theme.css?v=146451627821806555361665489047"
-                };document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-              
-        </script>
-        <link href="smartbiz/cdn/shop/t/5/assets/style_v%3D152172306604415270821681458303.css" rel="stylesheet" type="text/css" media="all">
-        <link href="smartbiz/cdn/shop/t/5/assets/slick-slider_v%3D154036005653900454071658832484.css" rel="stylesheet" type="text/css" media="all">
-        <link href="smartbiz/cdn/shop/t/5/assets/mini-carousel_v%3D61706655047644364111659092980.css" rel="stylesheet" type="text/css" media="all">
-        <link href="smartbiz/cdn/shop/t/5/assets/mobile_v%3D97019839665624016141698301236.css" rel="stylesheet" type="text/css" media="all">
-        <script src="smartbiz/cdn/shop/t/5/assets/theme_v%3D12930364863115508631661404850.js" defer="defer"></script>
-        <script src="smartbiz/cdn/shop/t/5/assets/lazysizes_v%3D63098554868324070131658832484.js" async="async"></script>
-        <!--[if (gt IE 9)|!(IE)]><!--><script src="smartbiz/cdn/shop/t/5/assets/slick.min_v%3D119177116428520753221658832484.js" defer="defer"></script><!--<![endif]-->
-        <!--[if lte IE 9]><script src="//smartbiz/cdn/shop/t/5/assets/slick.min.js?v=119177116428520753221658832484"></script><![endif]-->
-        <!--[if (gt IE 9)|!(IE)]><!--><script src="smartbiz/cdn/shop/t/5/assets/ScrollMagic.min_v%3D39473031787387886161658832484.js" defer="defer"></script><!--<![endif]-->
-        <!--[if lte IE 9]><script src="//smartbiz/cdn/shop/t/5/assets/ScrollMagic.min.js?v=39473031787387886161658832484"></script><![endif]-->
-        <!--[if (gt IE 9)|!(IE)]><!--><script src="smartbiz/cdn/shop/t/5/assets/animation.gsap.min_v%3D107145733315691775621658832484.js" defer="defer"></script><!--<![endif]-->
-        <!--[if lte IE 9]><script src="//smartbiz/cdn/shop/t/5/assets/animation.gsap.min.js?v=107145733315691775621658832484"></script><![endif]-->
-        <!--[if (gt IE 9)|!(IE)]><!--><script src="smartbiz/cdn/shop/t/5/assets/minicarousel_v%3D96361027752101139021681723606.js" defer="defer"></script><!--<![endif]-->
-        <!--[if lte IE 9]><script src="//smartbiz/cdn/shop/t/5/assets/minicarousel.js?v=96361027752101139021681723606"></script><![endif]-->
-        <!--[if (gt IE 9)|!(IE)]><!--><script src="smartbiz/cdn/shop/t/5/assets/parallaxify_v%3D8246305025109928871658832484.js" defer="defer"></script><!--<![endif]-->
-        <!--[if lte IE 9]><script src="//smartbiz/cdn/shop/t/5/assets/parallaxify.js?v=8246305025109928871658832484"></script><![endif]--> 
-        <!--[if (gt IE 9)|!(IE)]><!-->
-        <!--   <script src="//smartbiz/cdn/shop/t/5/assets/lotus-food-product.js?v=81280239525744421981658832484" defer="defer"></script> -->
-        <!--<![endif]-->
-        <!--[if lte IE 9]><script src="//smartbiz/cdn/shop/t/5/assets/theme.js?v=12930364863115508631661404850"></script><![endif]-->
-        <script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');</script>
-        <script id="__st">var __st={"a":55829889078,"offset":-25200,"reqid":"f396ef84-421c-443f-846a-9e594a2ab2e8","pageurl":"smartbiz\/collections\/rice-ramen-noodles\/products\/organic-millet-brown-rice-ramen-4-ramen-cakes","u":"cf282f635bc7","p":"product","rtyp":"product","rid":6789779193910};</script>
-        <script>window.ShopifyPaypalV4VisibilityTracking = true;</script>
-        <script>!function(o){o.addEventListener("DOMContentLoaded",function(){window.Shopify=window.Shopify||{},window.Shopify.recaptchaV3=window.Shopify.recaptchaV3||{siteKey:"6LcCR2cUAAAAANS1Gpq_mDIJ2pQuJphsSQaUEuc9"};var t=['form[action*="/contact"] input[name="form_type"][value="contact"]','form[action*="/comments"] input[name="form_type"][value="new_comment"]','form[action*="/account"] input[name="form_type"][value="customer_login"]','form[action*="/account"] input[name="form_type"][value="recover_customer_password"]','form[action*="/account"] input[name="form_type"][value="create_customer"]','form[action*="/contact"] input[name="form_type"][value="customer"]'].join(",");function n(e){e=e.target;null==e||null!=(e=function e(t,n){if(null==t.parentElement)return null;if("FORM"!=t.parentElement.tagName)return e(t.parentElement,n);for(var o=t.parentElement.action,r=0;r<n.length;r++)if(-1!==o.indexOf(n[r]))return t.parentElement;return null}(e,["/contact","/comments","/account"]))&&null!=e.querySelector(t)&&((e=o.createElement("script")).setAttribute("src","https://cdn.shopify.com/shopifycloud/storefront-recaptcha-v3/v0.6/index.js"),o.body.appendChild(e),o.removeEventListener("focus",n,!0),o.removeEventListener("change",n,!0),o.removeEventListener("click",n,!0))}o.addEventListener("click",n,!0),o.addEventListener("change",n,!0),o.addEventListener("focus",n,!0)})}(document);</script>
-        <script data-source-attribution="shopify.loadfeatures" defer="defer" src="smartbiz/cdn/shopifycloud/shopify/assets/storefront/load_feature-87876fa245af19cbd14aa886ed59c6aa8a27c45d24dcd7a81cf2d2323506233e.js" crossorigin="anonymous"></script>
-        <script crossorigin="anonymous" defer="defer" src="smartbiz/cdn/shopifycloud/shopify/assets/shopify_pay/storefront-a2d444786d996da5634fbbaeeffe6104ee672440dfa6cdcaebfb27dceaaf9c0f_v%3D20220906.js"></script>
-        <script data-source-attribution="shopify.dynamic-checkout" defer="defer" src="smartbiz/cdn/shopifycloud/shopify/assets/storefront/features-1c0b396bd4d054b94abae1eb6a1bd6ba47beb35525c57a217c77a862ff06d83f.js" crossorigin="anonymous"></script>
-        <style id="shopify-dynamic-checkout-cart">@media screen and (min-width: 750px) {
-            #dynamic-checkout-cart {
-            min-height: 50px;
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
             }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                border-bottom: 1px solid #eee;
             }
-            @media screen and (max-width: 750px) {
-            #dynamic-checkout-cart {
-            min-height: 240px;
+
+            nav ul li:last-child {
+                border-bottom: none;
             }
+
+            nav a {
+                display: block;
+                padding: 0.5rem 0;
             }
-        </style>
-        <script src="ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    </head>
-    <body class="template-product  product not_homepage">
-        <a class="in-page-link visually-hidden skip-link" href="#MainContent">Skip to content</a>
-        <style data-shopify="">
-            .cart-popup {
-            box-shadow: 1px 1px 10px 2px rgba(235, 235, 235, 0.5);
+
+            .partner-button {
+                background: linear-gradient(135deg, #ff9f43, #ff6b6b);
+                border-radius: 0;
+                width: 100%;
+                text-align: center;
+                margin: 0;
             }
-        </style>
-        <!-- Back to top button -->
-        <a id="back_button" class="desktop--hide"><img src="cdn.shopify.com/s/files/1/0558/2988/9078/files/back.png"></a>
-        <div id="shopify-section-header" class="shopify-section">
-            <div data-section-id="header" data-section-type="header-section">
-                <nav class="mobile-nav-wrapper medium-up--hide" role="navigation">
-                    <ul id="MobileNav" class="mobile-nav">
-                        <li class="mobile-nav__item border-bottom">
-                            <a href="https://xleats.github.io/" class="mobile-nav__link">
-                            HOME
-                            </a>
-                        </li>
-                        <li class="mobile-nav__item border-bottom">
-                            <a href="#flavours" class="mobile-nav__link">
-                            RESTAURANTS
-                            </a>
-                        </li>
-                        <li class="mobile-nav__item border-bottom">
-                            <a href="#about" class="mobile-nav__link">
-                            ABOUT
-                            </a>
-                        </li>
-                        <li class="mobile-nav__item">
-                            <a href="shopify-section-footer" class="mobile-nav__link" target="_blank">
-                            CONTACT
-                            </a>
-                        </li>
-                        <li class="mobile-nav__item">
-                            <a href="https://forms.gle/7rMdLFyhdN1m7nhJ6" class="mobile-nav__link" target="_blank">
-                            JOIN US
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="announcement-bar">
-                    <a href="#flavours"><p class="announcement-bar__message">Check out new eateries!</p></a>
-                </div>
-                <header class="site-header border-bottom" role="banner">
-                    <div class="nav-mobile">
-                        <div class="nav-mobile--main">
-                            <a class="nav-mobile-close"></a>
-                            <div class="mobile-main-menu">
-                                <div class="mobile-menu-l1">
-                                    <h5 class="headline-font">Menu</h5>
-                                    <ul>
-                                        <li>
-                                            <a href="https://xleats.github.io/">HOME</a>
-                                        </li>
-                                        <li>
-                                            <a href="#flavours">RESTAURANTS</a>
-                                        </li>
-                                        <li>
-                                            <a href="#about">ABOUT</a>
-                                        </li>
-                                        <li>
-                                            <a href="shopify-section-footer" target="_blank">CONTACT</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://forms.gle/7rMdLFyhdN1m7nhJ6" target="_blank">JOIN US</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nav-mobile--footer">
-                            <div class="mobile-shop-by">
-                                <h5 class="headline-font red-font"></h5>
-                                <ul>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid grid--no-gutters grid--table grid--between">
-                        <div class="grid__item logo-header-wrapper">
-                            <div class="site-header__logo">
-                                <a href="/" class="site-header__logo-image">
-                                    <img class="head_logo lazyload js" src="assets/full.png" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="0.7714285714285715" data-sizes="auto" alt="Amazon SmartBiz">
-                                    <img class="head_logo_scroll lazyload js" src="assets/half.png" data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.38235294117647" data-sizes="auto" alt="Amazon Smartbiz">
-                                    <noscript>
-                                        <img src="assets/half.png"
-                                            alt="Amazon SmartBiz">
-                                    </noscript>
-                                </a>
-                            </div>
-                        </div>
-                        <div id="header-menu" class="grid__item header-menu-center ">
-                            <a class="mobile-menu-btn desktop--hide">Menu</a>
-                            <ul class="site-menu list--inline small--hide" id="AccessibleNav" role="navigation">
-                                <li class="menu-item--1">
-                                    <a href="https://xleats.github.io/">HOME</a>  
-                                </li>
-                                <li class="menu-item--1">
-                                    <a href="#flavours">RESTAURANTS</a>        
-                                </li>
-                                <li class="menu-item--1">
-                                    <a href="#about">ABOUT</a>        
-                                </li>
-                                <li class="menu-item--1">
-                                    <a href="#contact_div">CONTACT</a>
-                                </li>
-                                <li class="menu-item--1">
-                                    <a href="https://forms.gle/7rMdLFyhdN1m7nhJ6" target="_blank">JOIN US</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </header>
-            </div>
-           
-            <script>
-                if(window.screen.width < 749){
-                	$("#shop-sub-menu .sub-header-menu-center ul").addClass("sub_menu_li"); 
-                }
-                  
-                  
-                if(window.screen.width > 750){  
-                $(function(){
-                  
-                  $('.header_account_bar').hover(function(){
-                    $(this).find('.header_account_bar_list').first().stop().toggle(200);
-                  }, function(){
-                    $(this).find('.header_account_bar_list').stop().hide(200);
-                  });
-                 
-                  
-                });
-                
-                }  
-                   
-                if(window.screen.width > 750){   
-                  $(document).ready(function() {
-                    $(".head_logo_scroll").css("display", "none");
-                    $(window).scroll(function() {
-                      var scroll = $(window).scrollTop();
-                      if (scroll > 120) {
-                        $("#shop-sub-menu").addClass("coll_nav_fix");
-                        $(".head_logo_scroll").fadeIn(500,'linear');
-                        $(".head_logo").fadeOut(50,'linear');
-                      } else {
-                        $("#shop-sub-menu").removeClass("coll_nav_fix");
-                        // $(".navbar").removeClass("nav-color");
-                        $(".head_logo_scroll").fadeOut(300,'linear');
-                        $(".head_logo").fadeIn(500,'linear');
-                      }
-                    });
-                  });  
-                }
-                  
-                  
-                if(window.screen.width < 749){ 
-                
-                  $(document).ready(function() {
-                    $(".template-index .head_logo_scroll").css("display", "none");
-                    $(window).scroll(function() {
-                      var scroll = $(window).scrollTop();
-                      if (scroll > 120) {
-                        $(".template-index #shop-sub-menu").addClass("coll_nav_fix");
-                        $(".template-index .head_logo_scroll").fadeIn(500,'linear');
-                        $(".template-index .head_logo").fadeOut(50,'linear');
-                      } else {
-                        $(".template-index #shop-sub-menu").removeClass("coll_nav_fix");
-                        // $(".navbar").removeClass("nav-color");
-                        $(".template-index .head_logo_scroll").fadeOut(300,'linear');
-                        $(".template-index .head_logo").fadeIn(500,'linear');
-                      }
-                    });
-                  });      
-                
-                }  
-                  
-            </script>  
+
+            .hero-banner {
+                flex-direction: column;
+                max-height: none;
+                padding: 1rem;
+            }
+
+            .hero-content {
+                padding: 0.5rem;
+                text-align: center;
+            }
+
+            .hero-image {
+                max-width: 100%;
+                height: 150px;
+            }
+
+            .tile-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            footer {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .contact-info {
+                word-wrap: break-word;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tile-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="assets/logoL.png" alt="XLeats Logo Left">
         </div>
-        <div class="page-container drawer-page-content" id="PageContainer">
-        <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
-            <div id="shopify-section-product-template" class="shopify-section">
-                <style>
-                    .product_img {  background-image: url(smartbiz/cdn/shop/files/Background_Color_v%3D1654032063.jpg);}  
-                    @media screen and (max-width: 749px) {
-                    .product_img {  background-image: url(smartbiz/cdn/shop/files/Carousel_v%3D1656961374.png);}  
-                    }
-                </style>
-                <div class="product_info_sec">
-                    <div style="" class="product_img bg_img">
-                        <div class="product-template__container page-width" id="ProductSection-product-template" data-section-id="product-template" data-section-type="product" data-enable-history-state="true" data-ajax-enabled="true">
-                        </div>
-                    </div>
-                </div>
-                <div class="product_des_sec">
-                    <div class="page-width">
-                        <ul id="pro_des_tabs">
-                            <li>
-                                <a href="#description">
-                                    <h3 class="h4">Explore Flavors</h3>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#ingredients"> </a>
-                                <h3 class="h4"><a href="#ingredients">Hassle-free Orders</a></h3>
-                                <a href="#ingredients"> </a>
-                            </li>
-                            <li>
-                                <a href="#cooking_instructions">
-                                    <h3 class="h4">Our Mission</h3>
-                                </a>
-                            </li>
-                        </ul>
-                        <div id="pro_des_content">
-                            <div id="description" class="pro_des_content">
-                                <div class="pro_cont">
-                                    <div class="pro_cont_text">
-                                        <div class="pro_cont_text_left">Dive into the vibrant food culture of Jamshedpur, curated exclusively for the XLRI community. Smartbiz XL Eats brings you the best local flavors, from traditional street fare to exclusive regional dishes, delivering a culinary experience right at your campus. Each restaurant partner is carefully selected for quality, taste, and authenticity, ensuring you get the most out of every meal. Whether you crave spicy, savory, or something sweet, we offer a diverse selection that suits every palate.
-                                        <br><br>Experience Jamshedpur’s finest dishes, delivered fresh, right when you need them – without stepping off campus. Your journey to local flavors starts here!</div>
-                                    </div>
-                                    <div class="pro_cont_image"><img src="assets/icon.png"></div>
-                                </div>
-                            </div>
-                            <div id="ingredients" class="pro_des_content">
-                                <div class="pro_cont">
-                                    <p><strong>Delivery – Pickup – Dineout</strong></p>
-                                    <div class="pro_cont_text">
-                                        <div class="pro_cont_text_left">
-                                            <p>Enjoy quick, hassle-free ordering designed for busy campus life. Our streamlined platform lets you browse menus, view specials, and place orders in just a few clicks.
-                                            <br><br><strong>With easy payment options and real-time updates, Smartbiz XL Eats offers a seamless experience from order to delivery.</strong></p>
-                                        </div>
-                                    </div>
-                                    <div class="pro_cont_image"><img src="assets/payments.png"></div>
-                                </div>
-                            </div>
-                            <div id="cooking_instructions" class="pro_des_content">
-                                <div class="pro_cont">
-                                    <div class="pro_cont_text">
-                                        <div class="pro_cont_text_left">At Smartbiz XL Eats, we’re dedicated to connecting XLRI with local businesses and fostering a thriving food ecosystem. By partnering with local eateries, we aim to enhance dining options, support community businesses, and bring a fresh, convenient approach to campus dining.
-                                        <br><br><strong>Join us in celebrating food, community, and convenience!</strong></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <script>
-                    if(window.screen.width < 749){
-                    	$("#pro_des_tabs").addClass("pro_des_tabs_menu_li"); 
-                    }
-                </script>
-                <script>
-                    // Show the first tab and hide the rest
-                    $('#pro_des_tabs li:first-child').addClass('active');
-                    $('.pro_des_content').hide();
-                    $('.pro_des_content:first').show();
-                    $('#pro_des_tabs > li  a').each(function(){
-                     var href = $(this).attr('href');
-                     const myArray = href.split("#");
-                     href = myArray[1];
-                     $(this).attr('href','#'+href);
-                    });
-                     
-                    $('#pro_des_tabs > li .h4').click(function(){
-                     
-                     $('.pro_des_content').hide();
-                     $('#pro_des_tabs li').removeClass('active');
-                     var index =  0;
-                     if($(this).parent().is('li')){
-                       $(this).parent().addClass('active');
-                       index = $(this).parent().index();
-                     }else if($(this).parent().parent().is('li')){
-                       $(this).parent().parent().addClass('active');
-                       index = $(this).parent().parent().index();
-                     }
-                     $('.pro_des_content:eq('+index+')').fadeIn();
-                     console.log(index);
-                     return false; 
-                     
-                    });
-                </script>  
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="https://forms.gle/RLVZxv4kBpiGA5cJ9" target="_blank" class="partner-button">Partner With Us</a></li>
+            </ul>
+        </nav>
+        <div class="logo-container logo-right">
+            <img src="assets/logoR.png" alt="XLeats Logo Right">
+        </div>
+        <button class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main>
+        <div class="hero-banner">
+            <div class="hero-content">
+                <h1 class="hero-title">Discover New <span class="highlight">Flavours</span></h1>
+                <p class="hero-text">Experience the best of cuisines with XLeats. From traditional delicacies to modern fusion, we bring you a curated selection of exceptional restaurants!</p>
             </div>
-        <section id="flavours">
-            <div class="product_fourth_sec index-section">
-            <div id="shopify-section-product_fourth_sec" class="shopify-section index-section">
-                <style>
-                    .coll_bg_img {  background-image: url(smartbiz/cdn/shop/files/Flavors_v%3D1668730387.png);}  
-                    @media screen and (max-width: 749px) {
-                    .coll_bg_img {  background-image: url(smartbiz/cdn/shop/files/Flavors_1_v%3D1668730464.png);}  
-                    }
-                </style>
-                <div class="coll_bg_img bg_img">
-                    <div class="page-width">
-                        <h2 class="h3 text-center" style="color: #ffffff;">check out our different restaurants</h2>
-                        <ul class="grid grid--uniform grid--blog">
-                            <li class="grid__item medium-up--one-third">
-                                <article aria-labelledby="FeaturedBlogTitle-2-product_blog_post">
-                                    <header>
-                                        <a href="https://www.smartbiz.in/aiyerscafe" class="article__link">
-                                            <style>#ArticleImage-128944537654 {
-                                                max-width: 345.0px;
-                                                max-height: 345px;
-                                                }
-                                                #ArticleImageWrapper-128944537654 {
-                                                max-width: 345.0px;
-                                                }
-                                            </style>
-                                            <div id="ArticleImageWrapper-128944537654" class="article__grid-image-wrapper js">
-                                                <div class="article__grid-image-container" style="padding-top:100.0%;" data-image-loading-animation="">
-                                                    <img id="ArticleImage-128944537654" class="article__grid-image lazyload" src="assets/Aiyers.jpg" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.0" data-sizes="auto" alt="">
-                                                </div>
-                                            </div>
-                                            <noscript>
-                                                <div class="article__grid-image-wrapper">
-                                                    <img src="assets/Aiyers.jpg" alt="Ramen Buns &amp; Vegan Burgers" class="article__grid-image" />
-                                                </div>
-                                            </noscript>
-                                            <h2 class="article__title" id="FeaturedBlogTitle-2-product_blog_post" style="color: #ffffff; text-align: center">
-                                                <strong>Aiyers</strong>
-                                            </h2>
-                                        </a>
-                                    </header>
-                                </article>
-                            </li>
-                            <li class="grid__item medium-up--one-third">
-                                <article aria-labelledby="FeaturedBlogTitle-4-product_blog_post">
-                                    <header>
-                                        <a href="https://www.smartbiz.in/cafejampotXLRI" class="article__link">
-                                        <style>#ArticleImage-128734593078 {
-                                            max-width: 345.0px;
-                                            max-height: 345px;
-                                            }
-                                            #ArticleImageWrapper-128734593078 {
-                                            max-width: 345.0px;
-                                            }
-                                        </style>
-                                        <div id="ArticleImageWrapper-128734593078" class="article__grid-image-wrapper js">
-                                            <div class="article__grid-image-container" style="padding-top:100.0%;" data-image-loading-animation="">
-                                                <img id="ArticleImage-128734593078" class="article__grid-image lazyload" src="assets/jampot.png" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.0" data-sizes="auto" alt="">
-                                            </div>
-                                        </div>
-                                        <noscript>
-                                            <div class="article__grid-image-wrapper">
-                                                <img src="assets/jampot.png" alt="Easy Miso Ramen" class="article__grid-image" />
-                                            </div>
-                                        </noscript>
-                                        <h2 class="article__title" id="FeaturedBlogTitle-4-product_blog_post" style="color: #ffffff; text-align: center">
-                                            <strong>Cafe Jampot</strong>
-                                        </h2>
-                                        </a>
-                                    </header>
-                                </article>
-                            </li>
-                            <li class="grid__item medium-up--one-third">
-                                <article aria-labelledby="FeaturedBlogTitle-15-product_blog_post">
-                                    <header>
-                                        <a href="https://www.smartbiz.in/JaiMaaFoodDrinkZone" class="article__link">
-                                        <style>#ArticleImage-128418316342 {
-                                            max-width: 345.0px;
-                                            max-height: 345px;
-                                            }
-                                            #ArticleImageWrapper-128418316342 {
-                                            max-width: 345.0px;
-                                            }
-                                        </style>
-                                        <div id="ArticleImageWrapper-128418316342" class="article__grid-image-wrapper js">
-                                            <div class="article__grid-image-container" style="padding-top:100.0%;" data-image-loading-animation="">
-                                                <img id="ArticleImage-128418316342" class="article__grid-image lazyload" src="assets/j.png" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.0" data-sizes="auto" alt="">
-                                            </div>
-                                        </div>
-                                        <noscript>
-                                            <div class="article__grid-image-wrapper">
-                                                <img src="assets/j.png" alt="Jai Maa" class="article__grid-image" />
-                                            </div>
-                                        </noscript>
-                                        <h2 class="article__title" id="FeaturedBlogTitle-15-product_blog_post" style="color: #ffffff; text-align: center">
-                                            <strong>Jai Maa</strong>
-                                        </h2>
-                                        </a>
-                                    </header>
-                                </article>
-                            </li>
-                            <li class="grid__item medium-up--one-third">
-                                <article aria-labelledby="FeaturedBlogTitle-15-product_blog_post">
-                                    <header>
-                                        <a href="https://www.smartbiz.in/parathetepurje" class="article__link">
-                                        <style>#ArticleImage-128418316342 {
-                                            max-width: 345.0px;
-                                            max-height: 345px;
-                                            }
-                                            #ArticleImageWrapper-128418316342 {
-                                            max-width: 345.0px;
-                                            }
-                                        </style>
-                                        <div id="ArticleImageWrapper-128418316342" class="article__grid-image-wrapper js">
-                                            <div class="article__grid-image-container" style="padding-top:100.0%;" data-image-loading-animation="">
-                                                <img id="ArticleImage-128418316342" class="article__grid-image lazyload" src="assets/p.png" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.0" data-sizes="auto" alt="">
-                                            </div>
-                                        </div>
-                                        <noscript>
-                                            <div class="article__grid-image-wrapper">
-                                                <img src="assets/p.png" alt="Parathe Te Purje" class="article__grid-image" />
-                                            </div>
-                                        </noscript>
-                                        <h2 class="article__title" id="FeaturedBlogTitle-15-product_blog_post" style="color: #ffffff; text-align: center">
-                                            <strong>Parathe Te Purje</strong>
-                                        </h2>
-                                        </a>
-                                    </header>
-                                </article>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="hero-image">
+                <img src="assets/banner.png" alt="Featured Restaurants">
             </div>
-            </div>
-        </section>
-        <section id="about">
-            <div id="shopify-section-product_blog_post" class="shopify-section index-section">
-                <div class="page-width">
-                    <header class="section-header text-center">
-                        <br /><br /><br />
-                        <h2>About Us</h2>
-                    </header>
-                    <div class="feature-row">
-                        <div class="feature-row">
-                    <div class="feature-row__item feature-row__text feature-row__text--right">
-                        <div class="rte rte-setting featured-row__subtext"><p><em>
-                            Welcome to <em><strong>Smartbiz XL Eats</strong></em> – your seamless solution for curated dining experiences at XLRI. Born out of a vision to enhance food accessibility and variety for students and staff, we aim to connect the XLRI community with top local eateries. With four popular restaurants now onboard, our platform delivers quality, convenience, and choice right to your campus life.
-                            
-                            <br><br><em><strong>Amazon’s Smartbiz model</strong></em>
-                            <br>We focus on empowering small businesses while providing our users with a seamless, tailored ordering experience. Our goals include building strong relationships with local restaurant partners, ensuring quality and value in every meal, and delivering a fast, user-friendly interface that meets the unique needs of campus life. We are committed to using technology to streamline food ordering, bringing you delicious, diverse options without the hassle.
-                            
-                            <br><br><strong>Join us as we redefine dining for the XLRI community!</strong></em></p></div>
-                    </div>
-                    <div class="feature-row__item">
-                        <style>#FeatureRowImage-our_story_second_sec {
-                            max-width: 432.00000000000006px;
-                            max-height: 373px;
-                          }
-                        
-                          #FeatureRowImageWrapper-our_story_second_sec {
-                            max-width: 432.00000000000006px;
-                          }
-                        </style>
-                        
-                                <div id="FeatureRowImageWrapper-our_story_second_sec" class="feature-row__image-wrapper js">
-                                  <div style="padding-top:86.34259259259258%;">
-                                    <img id="FeatureRowImage-our_story_second_sec" class="feature-row__image lazyautosizes ls-is-cached lazyloaded" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.158176943699732" data-sizes="auto" alt="" src="assets/story.jpeg">
-                                  </div>
-                                </div>
-                        
-                                <noscript>
-                                  <img src="assets/story.jpeg" class="feature-row__image" />
-                                </noscript>
-                              
-                            </div>
-                    <hr class="hr--invisible" aria-hidden="true">
-                    <div class="text-right">
-                    </div>
+        </div>
+
+        <div class="tile-container">
+            <a href="https://www.smartbiz.in/aiyerscafe?utm_campaign=linkinbio&utm_medium=referral&utm_source=later-linkinbio" target="_blank" class="tile">
+                <div class="tile-image">
+                    <img src="assets/Aiyers.jpg" alt="Restaurant 1">
                 </div>
-            </div>
-            </div></div>
-        </section>
+                <div class="tile-name">
+                    Aiyers
                 </div>
-        <div id="shopify-section-footer" class="shopify-section">
-            <footer class="content-wrapper--large">
-                <div class="content--border add-pad">
-                    <!--  <div class="logo-footer-wrapper">
-                        <a href="/" class="site-footer__logo-image">
-                          <img src="//smartbiz/cdn/shop/files/LotusLogoBrown_1b3e1551-8252-4ca3-95db-b16e33ae097a.png?v=1652339945">
-                        </a>
-                        
-                        </div>-->
-                    <ul class="site-menu--expanded">
-                        <div class="logo-footer-wrapper">
-                            <li> <a href="/" class="site-footer__logo-image">
-                                <img src="assets/amz.png">
-                                </a>
-                            </li>
-                        </div>
-                        <li class="menu-item--1 menu-item--children">
-                            <a href="#flavours">Restaurants</a>        
-                            <div class="sub-menu__wrapper">
-                                <ul class="sub-menu sub-menu--1">
-                                    <li class="menu-item--2"><a href="https://linkin.bio/xlri/">All Eateries</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu-item--1 menu-item--children">
-                            <a href="#">XL Eats</a>        
-                            <div class="sub-menu__wrapper">
-                                <ul class="sub-menu sub-menu--1">
-                                    <li class="menu-item--2"><a href="#about">About Us</a>
-                                    </li>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu-item--1 menu-item--children">
-                            <a href="#">JOIN US</a>        
-                            <div class="sub-menu__wrapper">
-                                <ul class="sub-menu sub-menu--1">
-                                    <li class="menu-item--2"><a href="https://forms.gle/7rMdLFyhdN1m7nhJ6" target="_blank">Register</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu-item--1 menu-item--children">
-                            <a href="#">CONTACT</a>        
-                            <div class="sub-menu__wrapper">
-                                <ul class="sub-menu sub-menu--1">
-                                    <li class="menu-item--2"><a href="https://www.facebook.com/profile.php?id=61553411932336" target="_blank" >Facebook</a>
-                                    </li>
-                                    <li class="menu-item--2"><a href="https://www.instagram.com/millet._.magic" target="_blank" >Instagram</a>
-                                    </li>
-                                    <li class="menu-item--2"><a href="https://twitter.com/magic_millet" target="_blank" >Twitter</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
+            </a>
+            <a href="https://www.smartbiz.in/cafejampotXLRI?utm_campaign=linkinbio&utm_medium=referral&utm_source=later-linkinbio" target="_blank" class="tile">
+                <div class="tile-image">
+                    <img src="assets/jampot.png" alt="Restaurant 2">
                 </div>
-                <div id="contact_div" class="add-pad copy-content">
-                    <div class="copy-footer">
-                        <p class="hover-underline copyright-line">© 2024 All Rights Reserved. Amazon Inc.</p>
-                    </div>
-                    <div class=" social--footer ">
-                        <ul class="list--inline">
-                            <li><a href="https://www.facebook.com/profile.php?id=61553411932336" target="_blank" title="Like Millet Magic on Facebook">
-                                <img src="smartbiz/cdn/shop/t/5/assets/icon-facebook-yellow_v%3D172955497105321937821658832484.png" alt="Like Millet Magic on Facebook">
-                                </a>
-                            </li>
-                            <li><a href="https://www.instagram.com/millet._.magic" target="_blank" title="Follow Millet Magic on Instagram">
-                                <img src="smartbiz/cdn/shop/t/5/assets/icon-instagram-yellow_v%3D8300629722600868911658832484.png" alt="Follow Millet Magic on Instagram">
-                                </a>
-                            </li>
-                            <li><a href="https://twitter.com/magic_millet" target="_blank" title="Follow Millet Magic on Twitter">
-                                <img src="smartbiz/cdn/shop/t/5/assets/icon-twitter-yellow-2_v%3D81741762494360300821698229501.png" alt="Follow Millet Magic on Twitter">
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="tile-name">
+                    Cafe Jampot
                 </div>
-            </footer>
-    </body>
+            </a>
+            <a href="https://www.smartbiz.in/JaiMaaFoodDrinkZone?utm_campaign=linkinbio&utm_medium=referral&utm_source=later-linkinbio" target="_blank" class="tile">
+                <div class="tile-image">
+                    <img src="assets/Jai Maa.jpeg" alt="Restaurant 3">
+                </div>
+                <div class="tile-name">
+                   Jai Maa
+                </div>
+            </a>
+            <a href="https://www.smartbiz.in/parathetepurje?utm_campaign=linkinbio&utm_medium=referral&utm_source=later-linkinbio" target="_blank" class="tile">
+                <div class="tile-image">
+                    <img src="assets/parathe.png" alt="Restaurant 4">
+                </div>
+                <div class="tile-name">
+                    Parathe Te Purje
+                </div>
+            </a>
+        </div>        
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <img src="assets/amz.png" alt="Footer Logo">
+        </div>
+        <div class="contact-info">
+            <p>Contact us at: <a href="mailto:xlrismartbiz@gmail.com" style="color: #0073e6; text-decoration: none;">xlrismartbiz@gmail.com</a></p>
+        </div>
+        <div class="copyright">
+            © 2024 Amazon Inc. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('nav');
+
+            hamburger.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                
+                // Animate hamburger icon
+                const spans = this.querySelectorAll('span');
+                spans.forEach(span => span.classList.toggle('active'));
+            });
+        });
+    </script>
+</body>
 </html>
