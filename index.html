@@ -269,7 +269,7 @@
         .hero-image {
             flex: 1;
             max-width: 400px;
-            height: 200px;
+            height: 250px;
             border-radius: 15px;
             overflow: hidden;
             display: flex;
@@ -519,7 +519,7 @@
         </div>
 
         <div class="tile-container">
-            <a href="https://www.smartbiz.in/aiyerscafe?utm_campaign=linkinbio&utm_medium=referral&utm_source=later-linkinbio" target="_blank" class="tile">
+            <a href="https://www.smartbiz.in/AiyersCafeXLRI" target="_blank" class="tile">
                 <div class="tile-image">
                     <img src="assets/Aiyers.jpg" alt="Restaurant 1">
                 </div>
@@ -527,23 +527,23 @@
                     Aiyer's
                 </div>
             </a>
-            <a class="tile">
+            <a href="https://www.smartbiz.in/cafejampotXLRI" target="_blank" class="tile">
                 <div class="tile-image">
                     <img src="assets/jampot.png" alt="Restaurant 2">
                 </div>
                 <div class="tile-name">
-                    <span style="color: #FF5733; font-weight: bold;">Coming Soon!</span>
+                    <span>Cafe Jampot</span>
                 </div>
             </a>
-            <a href="https://www.smartbiz.in/JaiMaaFoodDrinkZone?utm_campaign=linkinbio&utm_medium=referral&utm_source=later-linkinbio" target="_blank" class="tile">
+            <a href="https://www.smartbiz.in/JaiMaaFoodDrinkZone" target="_blank" class="tile">
                 <div class="tile-image">
                     <img src="assets/Jai Maa.jpeg" alt="Restaurant 3">
                 </div>
                 <div class="tile-name">
-                   Jai Maa
+                <span>Jai Maa</span>
                 </div>
             </a>
-            <a href="https://www.smartbiz.in/parathetepurje?utm_campaign=linkinbio&utm_medium=referral&utm_source=later-linkinbio" target="_blank" class="tile">
+            <a href="https://www.smartbiz.in/parathetepurje" target="_blank" class="tile">
                 <div class="tile-image">
                     <img src="assets/parathe.png" alt="Restaurant 4">
                 </div>
@@ -559,7 +559,10 @@
             <img src="assets/amz.png" alt="Footer Logo">
         </div>
         <div class="contact-info">
-            <p>Contact us at: <a href="mailto:xlrismartbiz@gmail.com" style="color: #0073e6; text-decoration: none;">xlrismartbiz@gmail.com</a></p>
+            <p>Contact us at:  
+                <a href="mailto:xlrismartbiz@gmail.com" style="color: #0073e6; text-decoration: none;">xlrismartbiz@gmail.com</a> |  
+                Mobile: <a href="tel:+919449569502" style="color: #0073e6; text-decoration: none;">+91 94495 69502</a>,  
+                <a href="tel:+917054644911" style="color: #0073e6; text-decoration: none;">+91 70546 44911</a></p>
         </div>
         <div class="copyright">
             © 2024 Amazon Inc. All rights reserved.
@@ -579,6 +582,32 @@
                 spans.forEach(span => span.classList.toggle('active'));
             });
         });
+        function updateCountdown() {
+        const now = new Date();
+        const targetTime = new Date();
+        targetTime.setHours(20, 0, 0, 0); // Set target to 6 PM today
+
+        // If the target time has passed, set it to tomorrow's 6 PM
+        if (now > targetTime) {
+            targetTime.setDate(targetTime.getDate() + 1);
+        }
+
+        const timeDifference = targetTime - now;
+
+        // Calculate hours, minutes, and seconds
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        // Display the result in the timer span
+        document.getElementById("timer").innerText = `${hours}h ${minutes}m ${seconds}s`;
+        document.getElementById("timer2").innerText = `${hours}h ${minutes}m ${seconds}s`;
+
+        // Update countdown every second
+        setTimeout(updateCountdown, 1000);
+    }
+
+    updateCountdown();
     </script>
 </body>
 </html>
