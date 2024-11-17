@@ -31,6 +31,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
+        .tile-confetti {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confetti-particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 1s ease-out, opacity 1s ease-out;
+        }
         html {
             scroll-behavior: smooth;
         }
@@ -668,15 +682,23 @@
         </div>
 
         <div class="tile-container">
-            <a href="https://www.smartbiz.in/AiyersCafeXLRI" target="_blank" class="tile">
+            <a href="https://www.smartbiz.in/bishuda" target="_blank" data-eatery-id="1" class="tile">
                 <div class="tile-image">
-                    <img src="assets/Aiyers.jpg" alt="Restaurant 1">
+                    <img src="assets/bishu.jpeg" alt="Restaurant 1">
+                </div>
+                <div class="tile-name">
+                    Bishu Da's
+                </div>
+            </a>
+            <a href="https://www.smartbiz.in/AiyersCafeXLRI" target="_blank" data-eatery-id="1" class="tile">
+                <div class="tile-image">
+                    <img src="assets/Aiyers.jpg" alt="Restaurant 2">
                 </div>
                 <div class="tile-name">
                     Aiyer's
                 </div>
             </a>
-            <a href="https://www.smartbiz.in/cafejampotXLRI" target="_blank" class="tile">
+            <a href="https://www.smartbiz.in/cafejampotXLRI" target="_blank" data-eatery-id="2" class="tile">
                 <div class="tile-image">
                     <img src="assets/jampot.png" alt="Restaurant 2">
                 </div>
@@ -684,7 +706,7 @@
                     <span>Café Jampot</span>
                 </div>
             </a>
-            <a href="https://www.smartbiz.in/JaiMaaFoodDrinkZone" target="_blank" class="tile">
+            <a href="https://www.smartbiz.in/JaiMaaFoodDrinkZone" target="_blank" data-eatery-id="3" class="tile">
                 <div class="tile-image">
                     <img src="assets/Jai Maa.jpeg" alt="Restaurant 3">
                 </div>
@@ -692,7 +714,7 @@
                 <span>Jai Maa</span>
                 </div>
             </a>
-            <a href="https://www.smartbiz.in/parathetepurje" target="_blank" class="tile">
+            <a href="https://www.smartbiz.in/parathetepurje" target="_blank" data-eatery-id="4" class="tile">
                 <div class="tile-image">
                     <img src="assets/parathe.png" alt="Restaurant 4">
                 </div>
@@ -717,6 +739,21 @@
     </footer>
 
 <script>
+    window.onload = function() {
+        const savedStatuses = localStorage.getItem('eateryStatuses');
+        if (savedStatuses) {
+            const statuses = JSON.parse(savedStatuses);
+            Object.entries(statuses).forEach(([id, isActive]) => {
+                if (!isActive) {
+                    const eateryElement = document.querySelector(`[data-eatery-id="${id}"]`);
+                    if (eateryElement) {
+                        eateryElement.style.display = 'none';
+                    }
+                }
+            });
+        }
+    };
+
     document.addEventListener('DOMContentLoaded', function() {
         // Existing hamburger menu code
         const hamburger = document.querySelector('.hamburger');
@@ -796,6 +833,53 @@
         }
 
         updateCountdown();
+
+        const bishudaTile = document.querySelector('[href*="bishuda"]');
+            
+            if (bishudaTile) {
+                bishudaTile.classList.add('tile-confetti');
+
+                bishudaTile.addEventListener('mouseenter', (e) => {
+                    const tile = e.currentTarget;
+                    const colors = [
+                        '#FF6B6B', '#4ECDC4', '#FFD93D', 
+                        '#6A5ACD', '#FF9F43', '#2ECC71'
+                    ];
+
+                    // Remove existing confetti
+                    tile.querySelectorAll('.confetti-particle').forEach(el => el.remove());
+
+                    // Generate confetti
+                    for (let i = 0; i < 30; i++) {
+                        const confetti = document.createElement('div');
+                        confetti.classList.add('confetti-particle');
+                        
+                        // Random position
+                        const x = Math.random() * tile.offsetWidth;
+                        const y = Math.random() * tile.offsetHeight;
+                        
+                        // Random color
+                        const color = colors[Math.floor(Math.random() * colors.length)];
+                        
+                        confetti.style.left = `${x}px`;
+                        confetti.style.top = `${y}px`;
+                        confetti.style.backgroundColor = color;
+                        
+                        tile.appendChild(confetti);
+
+                        // Animate
+                        requestAnimationFrame(() => {
+                            confetti.style.transform = `translateY(-${tile.offsetHeight * 2}px) rotate(${Math.random() * 360}deg)`;
+                            confetti.style.opacity = '0';
+                        });
+
+                        // Remove after animation
+                        setTimeout(() => {
+                            confetti.remove();
+                        }, 1000);
+                    }
+                });
+            }
     });
 </script>
     <div class="contact-overlay" id="contact-overlay">
