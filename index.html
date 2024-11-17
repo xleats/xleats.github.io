@@ -484,6 +484,154 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .contact-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-popup {
+            background: white;
+            padding: 2rem; /* Increased padding */
+            border-radius: 20px; /* Slightly more rounded */
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 2.5rem; /* Increased spacing */
+        }
+
+        .contact-overlay.active {
+            opacity: 1;
+            display: flex;
+        }
+
+        .contact-overlay.active .contact-popup {
+            transform: translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: none;
+            border: none;
+            font-size: 2rem; /* Increased size */
+            color: #2d3436;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px; /* Increased size */
+            height: 40px; /* Increased size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 159, 67, 0.1); /* Subtle background */
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 159, 67, 0.2);
+            transform: rotate(90deg);
+            color: #ff9f43;
+        }
+
+        .contact-header h2 {
+            color: #2d3436;
+            font-size: 2rem; /* Larger title */
+            margin-bottom: 0.75rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .contact-header p {
+            color: #636e72;
+            font-size: 1.1rem; /* Slightly larger text */
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem; /* Increased gap */
+        }
+
+        .contact-card {
+            padding: 2rem; /* Increased padding */
+            border-radius: 16px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem; /* Consistent spacing between elements */
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+            border-color: #ff9f43;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa); /* Subtle gradient */
+        }
+
+        .contact-name {
+            font-size: 1.25rem; /* Larger name */
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(255, 159, 67, 0.2); /* Decorative underline */
+        }
+
+        .contact-info i {
+            width: 24px; /* Fixed width for icons */
+            margin-right: 1rem;
+            color: #ff9f43;
+            font-size: 1.1rem; /* Slightly larger icons */
+        }
+
+        .contact-info span {
+            flex: 1;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-cards {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .contact-popup {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .contact-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .contact-card {
+                padding: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -494,6 +642,7 @@
         <nav>
             <ul>
                 <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link" id="contact-trigger">Contact Us</a></li>
                 <li><a href="https://forms.gle/RLVZxv4kBpiGA5cJ9" target="_blank" class="partner-button">Partner With Us</a></li>
             </ul>
         </nav>
@@ -532,7 +681,7 @@
                     <img src="assets/jampot.png" alt="Restaurant 2">
                 </div>
                 <div class="tile-name">
-                    <span>Cafe Jampot</span>
+                    <span>Café Jampot</span>
                 </div>
             </a>
             <a href="https://www.smartbiz.in/JaiMaaFoodDrinkZone" target="_blank" class="tile">
@@ -559,55 +708,128 @@
             <img src="assets/amz.png" alt="Footer Logo">
         </div>
         <div class="contact-info">
-            <p>Contact us at:  
-                <a href="mailto:xlrismartbiz@gmail.com" style="color: #0073e6; text-decoration: none;">xlrismartbiz@gmail.com</a> |  
-                Mobile: <a href="tel:+919449569502" style="color: #0073e6; text-decoration: none;">+91 94495 69502</a>,  
-                <a href="tel:+917054644911" style="color: #0073e6; text-decoration: none;">+91 70546 44911</a></p>
+            <p>Write to us at:  
+                <a href="mailto:xlrismartbiz@gmail.com" style="color: #0073e6; text-decoration: none;">xlrismartbiz@gmail.com</a>
         </div>
         <div class="copyright">
             © 2024 Amazon Inc. All rights reserved.
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const nav = document.querySelector('nav');
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Existing hamburger menu code
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
 
-            hamburger.addEventListener('click', function() {
-                nav.classList.toggle('active');
-                
-                // Animate hamburger icon
-                const spans = this.querySelectorAll('span');
-                spans.forEach(span => span.classList.toggle('active'));
-            });
+        hamburger.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            
+            // Animate hamburger icon
+            const spans = this.querySelectorAll('span');
+            spans.forEach(span => span.classList.toggle('active'));
         });
-        function updateCountdown() {
-        const now = new Date();
-        const targetTime = new Date();
-        targetTime.setHours(20, 0, 0, 0); // Set target to 6 PM today
 
-        // If the target time has passed, set it to tomorrow's 6 PM
-        if (now > targetTime) {
-            targetTime.setDate(targetTime.getDate() + 1);
+        // Contact popup functionality
+        const contactTrigger = document.getElementById('contact-trigger');
+        const contactOverlay = document.getElementById('contact-overlay');
+        
+        if (contactTrigger && contactOverlay) {
+            const closeBtn = contactOverlay.querySelector('.close-btn');
+
+            // Adding click event to contact trigger
+            contactTrigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();  // Prevent event bubbling
+                contactOverlay.classList.add('active');
+                console.log('Contact trigger clicked'); // Debug log
+            });
+
+            // Close button functionality
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    contactOverlay.classList.remove('active');
+                });
+            }
+
+            // Close on outside click
+            contactOverlay.addEventListener('click', function(e) {
+                if (e.target === contactOverlay) {
+                    contactOverlay.classList.remove('active');
+                }
+            });
+
+            // Close on ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && contactOverlay.classList.contains('active')) {
+                    contactOverlay.classList.remove('active');
+                }
+            });
+        } else {
+            console.error('Contact trigger or overlay elements not found!'); // Debug log
         }
 
-        const timeDifference = targetTime - now;
+        // Existing countdown code
+        function updateCountdown() {
+            const now = new Date();
+            const targetTime = new Date();
+            targetTime.setHours(20, 0, 0, 0);
 
-        // Calculate hours, minutes, and seconds
-        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            if (now > targetTime) {
+                targetTime.setDate(targetTime.getDate() + 1);
+            }
 
-        // Display the result in the timer span
-        document.getElementById("timer").innerText = `${hours}h ${minutes}m ${seconds}s`;
-        document.getElementById("timer2").innerText = `${hours}h ${minutes}m ${seconds}s`;
+            const timeDifference = targetTime - now;
 
-        // Update countdown every second
-        setTimeout(updateCountdown, 1000);
-    }
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-    updateCountdown();
-    </script>
+            const timer = document.getElementById("timer");
+            const timer2 = document.getElementById("timer2");
+            
+            if (timer) timer.innerText = `${hours}h ${minutes}m ${seconds}s`;
+            if (timer2) timer2.innerText = `${hours}h ${minutes}m ${seconds}s`;
+
+            setTimeout(updateCountdown, 1000);
+        }
+
+        updateCountdown();
+    });
+</script>
+    <div class="contact-overlay" id="contact-overlay">
+        <div class="contact-popup">
+            <button class="close-btn">&times;</button>
+            <div class="contact-header">
+                <h2>Get in Touch</h2>
+                <p>We'd love to hear from you. Please reach out to our team.</p>
+            </div>
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-name">Rohit Kumar AS</div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 94495 6950</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>b23095@astra.xlri.ac.in</span>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-name">Richa Shukla</div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 70546 44911</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>b23211@astra.xlri.ac.in</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
