@@ -309,6 +309,7 @@
         }
 
         .tile {
+            position: relative; /* Added */
             background: white;
             border-radius: 9px;
             overflow: hidden;
@@ -318,6 +319,29 @@
             flex-direction: column;
             aspect-ratio: 3/4;
             height: auto;
+        }
+
+        .ribbon {
+            position: absolute;
+            top: 20px;
+            right: -39px;
+            width: 150px;
+            background-color: #ff6b6b;
+            color: white;
+            text-align: center;
+            transform: rotate(45deg);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 5px 0;
+            z-index: 10;
+        }
+
+        .tile-timer {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #2d3436;
+            margin-top: 24px;
         }
 
         .tile:hover {
@@ -707,22 +731,6 @@
         </div>
 
         <div class="tile-container">
-            <a href="https://www.smartbiz.in/bishuda" target="_blank" data-eatery-id="1" class="tile">
-                <div class="tile-image">
-                    <img src="assets/bishu.jpeg" alt="Restaurant 1">
-                </div>
-                <div class="tile-name">
-                    Bishu Da's
-                </div>
-            </a>
-            <a href="https://www.smartbiz.in/AiyersCafeXLRI" target="_blank" data-eatery-id="1" class="tile">
-                <div class="tile-image">
-                    <img src="assets/Aiyers.jpg" alt="Restaurant 2">
-                </div>
-                <div class="tile-name">
-                    Aiyer's
-                </div>
-            </a>
             <a href="https://www.smartbiz.in/parathetepurje" target="_blank" data-eatery-id="4" class="tile">
                 <div class="tile-image">
                     <img src="assets/parathe.png" alt="Restaurant 4">
@@ -731,9 +739,25 @@
                     Parathe Te Purje
                 </div>
             </a>
+            <a href="https://www.smartbiz.in/bishuda" target="_blank" data-eatery-id="1" class="tile">
+                <div class="tile-image">
+                    <img src="assets/bishu.jpeg" alt="Restaurant 2">
+                </div>
+                <div class="tile-name">
+                    Bishu Da's
+                </div>
+            </a>
+            <a href="https://www.smartbiz.in/AiyersCafeXLRI" target="_blank" data-eatery-id="1" class="tile">
+                <div class="tile-image">
+                    <img src="assets/Aiyers.jpg" alt="Restaurant 3">
+                </div>
+                <div class="tile-name">
+                    Aiyer's
+                </div>
+            </a>
             <a href="https://www.smartbiz.in/cafejampotXLRI" target="_blank" data-eatery-id="2" class="tile">
                 <div class="tile-image">
-                    <img src="assets/jampot.png" alt="Restaurant 2">
+                    <img src="assets/jampot.png" alt="Restaurant 5">
                 </div>
                 <div class="tile-name">
                     <span>Café Jampot</span>
@@ -745,6 +769,15 @@
                 </div>
                 <div class="tile-name">
                 <span>Jai Maa</span>
+                </div>
+            </a>
+            <a href="https://www.smartbiz.in/DadusCanteen" target="_blank" data-eatery-id="1" class="tile">
+                <div class="ribbon">Opening Soon</div>
+                <div class="tile-image">
+                    <img src="assets/Dadus.png" alt="Restaurant 1">
+                </div>
+                <div class="tile-name">
+                    Dadu's Canteen
                 </div>
             </a>
         </div>        
@@ -765,106 +798,104 @@
 
 <script>
     window.onload = function() {
-        const savedStatuses = localStorage.getItem('eateryStatuses');
-        if (savedStatuses) {
-            const statuses = JSON.parse(savedStatuses);
-            Object.entries(statuses).forEach(([id, isActive]) => {
-                if (!isActive) {
-                    const eateryElement = document.querySelector(`[data-eatery-id="${id}"]`);
-                    if (eateryElement) {
-                        eateryElement.style.display = 'none';
+            const savedStatuses = localStorage.getItem('eateryStatuses');
+            if (savedStatuses) {
+                const statuses = JSON.parse(savedStatuses);
+                Object.entries(statuses).forEach(([id, isActive]) => {
+                    if (!isActive) {
+                        const eateryElement = document.querySelector(`[data-eatery-id="${id}"]`);
+                        if (eateryElement) {
+                            eateryElement.style.display = 'none';
+                        }
                     }
-                }
-            });
-        }
-    };
-
-    document.addEventListener('DOMContentLoaded', function() {
-        // Existing hamburger menu code
-        const hamburger = document.querySelector('.hamburger');
-        const nav = document.querySelector('nav');
-
-        hamburger.addEventListener('click', function() {
-            nav.classList.toggle('active');
-            
-            // Animate hamburger icon
-            const spans = this.querySelectorAll('span');
-            spans.forEach(span => span.classList.toggle('active'));
-        });
-
-        // Contact popup functionality
-        const contactTrigger = document.getElementById('contact-trigger');
-        const contactOverlay = document.getElementById('contact-overlay');
-        
-        if (contactTrigger && contactOverlay) {
-            const closeBtn = contactOverlay.querySelector('.close-btn');
-
-            // Adding click event to contact trigger
-            contactTrigger.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();  // Prevent event bubbling
-                contactOverlay.classList.add('active');
-                document.body.classList.add('overlay-open');
-                console.log('Contact trigger clicked'); // Debug log
-            });
-
-            // Close button functionality
-            if (closeBtn) {
-                closeBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    contactOverlay.classList.remove('active');
-                    document.body.classList.remove('overlay-open'); 
                 });
             }
+        };
 
-            // Close on outside click
-            contactOverlay.addEventListener('click', function(e) {
-                if (e.target === contactOverlay) {
-                    contactOverlay.classList.remove('active');
-                    document.body.classList.remove('overlay-open'); 
-                }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger menu code
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('nav');
+
+            hamburger.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                
+                // Animate hamburger icon
+                const spans = this.querySelectorAll('span');
+                spans.forEach(span => span.classList.toggle('active'));
             });
 
-            // Close on ESC key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && contactOverlay.classList.contains('active')) {
-                    contactOverlay.classList.remove('active');
-                    document.body.classList.remove('overlay-open'); 
+            // Contact popup functionality
+            const contactTrigger = document.getElementById('contact-trigger');
+            const contactOverlay = document.getElementById('contact-overlay');
+            
+            if (contactTrigger && contactOverlay) {
+                const closeBtn = contactOverlay.querySelector('.close-btn');
+
+                // Adding click event to contact trigger
+                contactTrigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();  // Prevent event bubbling
+                    contactOverlay.classList.add('active');
+                    document.body.classList.add('overlay-open');
+                });
+
+                // Close button functionality
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        contactOverlay.classList.remove('active');
+                        document.body.classList.remove('overlay-open'); 
+                    });
                 }
-            });
-        } else {
-            console.error('Contact trigger or overlay elements not found!'); // Debug log
-        }
 
-        // Existing countdown code
-        function updateCountdown() {
-            const now = new Date();
-            const targetTime = new Date();
-            targetTime.setHours(20, 0, 0, 0);
+                // Close on outside click
+                contactOverlay.addEventListener('click', function(e) {
+                    if (e.target === contactOverlay) {
+                        contactOverlay.classList.remove('active');
+                        document.body.classList.remove('overlay-open'); 
+                    }
+                });
 
-            if (now > targetTime) {
-                targetTime.setDate(targetTime.getDate() + 1);
+                // Close on ESC key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && contactOverlay.classList.contains('active')) {
+                        contactOverlay.classList.remove('active');
+                        document.body.classList.remove('overlay-open'); 
+                    }
+                });
+            } else {
+                console.error('Contact trigger or overlay elements not found!');
             }
 
-            const timeDifference = targetTime - now;
+            // Function to update Dadu's timer
+            function updateDadusTimer() {
+                const now = new Date();
+                const targetTime = new Date();
+                targetTime.setHours(23, 0, 0, 0); // 11pm
 
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+                if (now > targetTime) {
+                    targetTime.setDate(targetTime.getDate() + 1);
+                }
 
-            const timer = document.getElementById("timer");
-            const timer2 = document.getElementById("timer2");
-            
-            if (timer) timer.innerText = `${hours}h ${minutes}m ${seconds}s`;
-            if (timer2) timer2.innerText = `${hours}h ${minutes}m ${seconds}s`;
+                const timeDifference = targetTime - now;
 
-            setTimeout(updateCountdown, 1000);
-        }
+                const hours = Math.floor((timeDifference) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-        updateCountdown();
+                const timerElement = document.getElementById("dadus-timer");
 
-        const bishudaTile = document.querySelector('[href*="bishuda"]');
-            
+                if (timerElement) timerElement.innerText = `Launching in ${hours}h ${minutes}m ${seconds}s`;
+
+                setTimeout(updateDadusTimer, 1000);
+            }
+
+            updateDadusTimer();
+
+            // Confetti effect for Bishu Da's tile
+            const bishudaTile = document.querySelector('[href*="bishuda"]');
+                
             if (bishudaTile2) {
                 bishudaTile.classList.add('tile-confetti');
 
@@ -909,7 +940,7 @@
                     }
                 });
             }
-    });
+        });
 </script>
     <div class="contact-overlay" id="contact-overlay">
         <div class="contact-popup">
@@ -945,7 +976,7 @@
                     <div class="contact-name">C V Krishna Murthy</div>
                     <div class="contact-info">
                         <i class="fas fa-phone"></i>
-                        <span>+91 8249180212</span>
+                        <span>+91 82491 80212</span>
                     </div>
                     <div class="contact-info">
                         <i class="fas fa-envelope"></i>
@@ -956,7 +987,7 @@
                     <div class="contact-name">Amit Singh Majila</div>
                     <div class="contact-info">
                         <i class="fas fa-phone"></i>
-                        <span>+91 8360571186</span>
+                        <span>+91 83605 71186</span>
                     </div>
                     <div class="contact-info">
                         <i class="fas fa-envelope"></i>
