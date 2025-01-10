@@ -337,6 +337,26 @@
             z-index: 10;
         }
 
+        .newribbon {
+            position: absolute;
+            top: 20px;
+            right: -39px;
+            width: 150px;
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            transform: rotate(45deg);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            font-size: 0.9rem;
+            font-weight: bold;
+            padding: 5px 0;
+            z-index: 10;
+        }
+
+        .tile-name:hover {
+            color: #FF7664;
+        }
+
         .tile-timer {
             text-align: center;
             font-size: 1.1rem;
@@ -375,15 +395,54 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0.5rem;
-            color: #2d3436;
-            letter-spacing: 0.5px;
+            padding: 0.5rem 1rem; /* Balanced padding for premium spacing */
+            color: #1c1c1e; /* Deep, rich black for text */
+            letter-spacing: 0.5px; /* Subtle spacing for elegance */
             text-align: center;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            font-size: clamp(1rem, 1.2vw, 1.1rem);
-            line-height: 1.6;
+            font-family: 'Inter', 'SF Pro Display', 'Roboto', sans-serif; /* Premium font stack */
+            font-weight: 500; /* Refined weight for balance */
+            font-size: clamp(1rem, 1.5vw, 1.2rem); /* Adaptive font sizing */
+            line-height: 1.5; /* Comfortable line height */
+            background-color: #ffffff; /* Clean white background */
+            border-top: 1px solid #e6e6e6; /* Subtle divider line */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            transition: all 0.3s ease-in-out; /* Smooth hover effect */
+            -webkit-font-smoothing: antialiased; /* Crisp text rendering */
+            -moz-osx-font-smoothing: grayscale;
         }
+
+        .soft-ribbon {
+            position: absolute;
+            top: 20px;
+            right: -39px;
+            width: 150px;
+            background-color: #F8F4E3;
+            color: black;
+            text-align: center;
+            transform: rotate(45deg);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            font-size: 0.8rem;
+            font-weight:500;
+            padding: 5px 0;
+            z-index: 10;
+        }
+
+        .soft-ribbon-small {
+            position: absolute;
+            top: 20px;
+            right: -39px;
+            width: 150px;
+            background-color: #F8F4E3;
+            color: black;
+            text-align: center;
+            transform: rotate(45deg);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            font-size: 0.69rem;
+            font-weight:500;
+            padding: 5px 0;
+            z-index: 10;
+        }
+        
 
         /* Footer Styles */
         footer {
@@ -518,8 +577,24 @@
         }
 
         @media (max-width: 480px) {
+            .tile {
+                aspect-ratio: 3/5; /* Consistent aspect ratio */
+                padding: 0.3rem;   /* Further reduce padding */
+            }
+            .tile-image img {
+                height: 80%; /* Smaller for narrow screens */
+            }
+            .tile-image img {
+                height: 80%; /* Smaller for narrow screens */
+            }
             .tile-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on small phones */
+                gap: 0.5rem; /* Minimized gap */
+            }
+            .tile-name {
+                font-size: clamp(0.8rem, 1vw, 0.9rem); /* Even smaller for mobile */
+                padding: 0.3rem; /* Tightened padding for smaller screens */
+                line-height: 1.2; /* Tighter line-spacing */
             }
         }
 
@@ -661,6 +736,26 @@
                 padding: 10px;
             }
 
+            .tile {
+                aspect-ratio: 4/5; /* Make tiles slightly shorter */
+                padding: 0.1rem;   /* Reduce padding */
+            }
+
+            .tile-image img {
+                height: 100%; /* Slightly smaller images */
+                object-fit: cover; /* Ensure images scale well */
+            }
+            .tile-container {
+                grid-template-columns: repeat(2, 1fr); /* 3 columns in portrait tablets */
+                gap: 1rem; /* Reduce gap between tiles */
+           
+            }
+            .tile-name {
+                font-size: clamp(0.9rem, 1.1vw, 1rem); /* Adjust font size */
+                padding: 0.4rem; /* Slightly smaller padding */
+                line-height: 1.3; /* Adjusted line-height */
+            }
+
             .contact-popup {
                 background: white;
                 padding: 2rem;
@@ -700,7 +795,7 @@
 <body>
     <header>
         <div class="logo-container">
-            <img src="assets/logoL.png" alt="XLeats Logo Left">
+            <img src="assets/logoR.png" alt="XLeats Logo Left">
         </div>
         <nav>
             <ul>
@@ -710,7 +805,7 @@
             </ul>
         </nav>
         <div class="logo-container logo-right">
-            <img src="assets/logoR.png" alt="XLeats Logo Right">
+            <img src="assets/logoL.png" alt="XLeats Logo Right">
         </div>
         <button class="hamburger">
             <span></span>
@@ -731,53 +826,76 @@
         </div>
 
         <div class="tile-container">
-            <a href="https://www.smartbiz.in/parathetepurje" target="_blank" data-eatery-id="4" class="tile">
+             <a href="https://www.smartbiz.in/BrubeckBakery" target="_blank" data-eatery-id="4" class="tile">
+                <div class="soft-ribbon-small">10:30 AM - 10 PM</div>
+                    <div class="tile-image">
+                        <img src="assets/brubeck.png" alt="Restaurant 1">
+                    </div>
+                    <div class="tile-name">
+                        <span>Brubeck Bakery</span>
+                    </div>
+                </a>
+            <a href="https://www.smartbiz.in/FruitandFoodGuru" target="_blank" data-eatery-id="4" class="tile">
+                <div class="newribbon">New!</div>
                 <div class="tile-image">
-                    <img src="assets/parathe.png" alt="Restaurant 4">
+                    <img src="assets/fruit.jpeg" alt="Restaurant 2">
                 </div>
                 <div class="tile-name">
-                    Parathe Te Purje
+                    <span>Fruit & Food Guru</span>
+                </div>
+            </a>
+            <a href="https://www.smartbiz.in/parathetepurje" target="_blank" data-eatery-id="4" class="tile">
+                <div class="soft-ribbon">10 AM - 5 PM</div>
+                <div class="tile-image">
+                    <img src="assets/parathe.png" alt="Restaurant 3">
+                </div>
+                <div class="tile-name">
+                    <span>Parathe Te Purje</span>
                 </div>
             </a>
             <a href="https://www.smartbiz.in/bishuda" target="_blank" data-eatery-id="1" class="tile">
+                <div class="soft-ribbon">11 PM - 4 AM</div>
                 <div class="tile-image">
-                    <img src="assets/bishu.jpeg" alt="Restaurant 2">
+                    <img src="assets/bishu.jpeg" alt="Restaurant 4">
                 </div>
                 <div class="tile-name">
-                    Bishu Da's
+                    <span>Bishu Da's</span>
                 </div>
             </a>
             <a href="https://www.smartbiz.in/AiyersCafeXLRI" target="_blank" data-eatery-id="1" class="tile">
+                <div class="soft-ribbon">9 AM - 9 PM</div>
                 <div class="tile-image">
-                    <img src="assets/Aiyers.jpg" alt="Restaurant 3">
+                    <img src="assets/Aiyers.jpg" alt="Restaurant 5">
                 </div>
                 <div class="tile-name">
-                    Aiyer's
+                    <span>Aiyer's</span>
                 </div>
             </a>
             <a href="https://www.smartbiz.in/cafejampotXLRI" target="_blank" data-eatery-id="2" class="tile">
+                <div class="soft-ribbon">7 PM - 3 AM</div>
                 <div class="tile-image">
-                    <img src="assets/jampot.png" alt="Restaurant 5">
+                    <img src="assets/jampot.png" alt="Restaurant 6">
                 </div>
                 <div class="tile-name">
                     <span>Café Jampot</span>
                 </div>
             </a>
             <a href="https://www.smartbiz.in/JaiMaaFoodDrinkZone" target="_blank" data-eatery-id="3" class="tile">
+                <div class="soft-ribbon">7 PM - 4 AM</div>
                 <div class="tile-image">
-                    <img src="assets/Jai Maa.jpeg" alt="Restaurant 3">
+                    <img src="assets/Jai Maa.jpeg" alt="Restaurant 7">
                 </div>
                 <div class="tile-name">
                 <span>Jai Maa</span>
                 </div>
             </a>
             <a href="https://www.smartbiz.in/DadusCanteen" target="_blank" data-eatery-id="1" class="tile">
-                <div class="ribbon">Opening Soon</div>
+                <div class="ribbon">Opening Soon!</div>
                 <div class="tile-image">
-                    <img src="assets/Dadus.png" alt="Restaurant 1">
+                    <img src="assets/Dadus.png" alt="Restaurant 8">
                 </div>
                 <div class="tile-name">
-                    Dadu's Canteen
+                    <span>Dadu's Canteen</span>
                 </div>
             </a>
         </div>        
@@ -789,7 +907,8 @@
         </div>
         <div class="contact-info">
             <p>Write to us at:  
-                <a href="mailto:xlrismartbiz@gmail.com" style="color: #0073e6; text-decoration: none;">xlrismartbiz@gmail.com</a>
+                <a href="mailto:xlrismartbiz@gmail.com" style="color: #0073e6; text-decoration: none;">xlrismartbiz@gmail.com</a> | <a href="mailto:krishna.murthy@astra.xlri.ac.in" style="color: #0073e6; text-decoration: none;">krishna.murthy@astra.xlri.ac.in</a>
+            </p>
         </div>
         <div class="copyright">
             © 2024 Amazon Inc. All rights reserved.
