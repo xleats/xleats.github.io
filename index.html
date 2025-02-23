@@ -31,6 +31,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
+        .moving-text {
+                display: inline-block;
+                white-space: nowrap;
+                overflow: visible;
+                position: relative;
+                width: 100%; /* Ensure it spans the container */
+            }
+
+            .moving-text::before {
+                content: '';
+                /*position: absolute;*/
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                /*max-width: 1200px;*/
+                /*background: linear-gradient(to right, white, rgba(255, 255, 255, 0));*/
+                z-index: 1;
+            }
+
+            .moving-text span {
+                display: inline-block;
+                animation: scroll-left 10s linear infinite; /* Adjust duration as needed */
+                /*position: relative;*/
+            }
+
+            @keyframes scroll-left {
+                from {
+                    transform: translateX(100%);
+                }
+                to {
+                    transform: translateX(-100%);
+                }
+            }
+
         .tile-confetti {
             position: relative;
             overflow: hidden;
@@ -825,6 +860,11 @@
             </div>
         </div>
 
+        <!-- add a new moving string here --> 
+        <div class="moving-text">
+            <span width="100%">Order for your favourite senior <a href="https://forms.gle/snxNQibVjgHNFtMb9" target="_blank" class="partner-button">Gift Fav Senior</a></span>
+        </div>
+        
         <div class="tile-container">
              <a href="https://www.smartbiz.in/BrubeckBakery" target="_blank" data-eatery-id="4" class="tile">
                 <div class="soft-ribbon-small">10:30 AM - 10 PM</div>
