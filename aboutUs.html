@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .about-section {
+      background-color: #cb6a4036;
+      padding: 5px;
+      text-align: center;
+    }
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    /* Left Section - Founding Team */
+    .founding-team {
+      flex: 1;
+      max-width: 50%;
+      padding: 20px;
+    }
+    .team-member {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .team-member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    }
+    .team-member h3 {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    .team-member p {
+      color: #555;
+      font-size: 14px;
+    }
+
+    /* Right Section - Journey */
+    .journey-section {
+      flex: 1;
+      max-width: 50%;
+      padding: 20px;
+    }
+    .journey-section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .journey-section p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    /* Second Section - New Team Members */
+    .new-team-section {
+      background-color: #fff;
+      padding: 20px;
+    }
+    .new-team-section h2 {
+      text-align: center;
+    }
+    .new-team-members {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px; /* Space between cards */
+    }
+    .new-member-card {
+      width: calc(33.33% - 40px); /* Three cards per row with spacing */
+      text-align: center;
+    }
+    .new-member-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    }
+    .new-member-card h3 {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    .new-member-card p {
+      color: #555;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- About Us Section Header -->
+  <div class="about-section">
+    <h1>About Us</h1>
+  </div>
+
+  <!-- First Section: Founding Team and Journey -->
+  <div class="about-container">
+    <!-- Left Subsection: Founding Team -->
+    <div class="founding-team">
+      <h2>Founding Team</h2>
+      <div class="team-member">
+        <img src="assets/brubeck.png" alt="Founder 1">
+        <h3>Rohit Kumar A.S</h3>
+      </div>
+      <div class="team-member">
+        <span><img src="assets/brubeck.png" alt="Founder 2"></span>
+        <span>
+          <h3>Richa Shukla</h3>
+        <p>XLeats started with a vision to revolutionize food ordering in campus canteens. 
+          From humble beginnings, we have grown into a trusted platform connecting students 
+          with their favorite meals. Our journey is fueled by passion, innovation, and the 
+          belief that great food brings people together.</p>
+        </span>
+      </div>
+      <div class="team-member">
+        <img src="assets/brubeck.png" alt="Founder 3">
+        <h3>C.V. Krishna Murthy</h3>
+      </div>
+    </div>
+
+    <!-- Right Subsection: Journey -->
+    <div class="journey-section">
+      <h2>Our Journey</h2>
+      <p>
+        XLeats started with a vision to revolutionize food ordering in campus canteens. 
+        From humble beginnings, we have grown into a trusted platform connecting students 
+        with their favorite meals. Our journey is fueled by passion, innovation, and the 
+        belief that great food brings people together.
+      </p>
+    </div>
+  </div>
+
+  <!-- Second Section: New Team Members -->
+  <div class="new-team-section">
+    <h2>New Team Members</h2>
+    <div class="new-team-members">
+      <!-- Member 1 -->
+      <div class="new-member-card">
+        <img src="assets/brubeck.png" alt="Team Member 1">
+        <h3>Hanvee Reddy</h3>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="new-member-card">
+        <img src="assets/brubeck.png" alt="Team Member 2">
+        <h3>Mokshit Khanna</h3>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="new-member-card">
+        <img src="assets/brubeck.png" alt="Team Member 3">
+        <h3>Akshat Gupta</h3>
+      </div>
+
+      <!-- Member 4 -->
+      <div class="new-member-card">
+        <img src="assets/brubeck.png" alt="Team Member 4">
+        <h3>Hardik Chadha</h3>
+      </div>
+
+      <!-- Member 5 -->
+      <div class="new-member-card">
+        <img src="assets/brubeck.png" alt="Team Member 5">
+        <h3>Shubham Pasari</h3>
+      </div>
+
+      <!-- Member 6 -->
+      <div class="new-member-card">
+        <img src="assets/brubeck.png" alt="Team Member 6">
+        <h3>Prakhar Richhariya</h3>
+      </div>
+    </div>
+  </div>
+</body>
+
