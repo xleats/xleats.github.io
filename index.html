@@ -1,1129 +1,1229 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSSZGQLSYQ"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    gtag('config', 'G-LSSZGQLSYQ');
+      gtag("config", "G-LSSZGQLSYQ");
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/amz.png">
-    <link rel="shortcut icon" type="image/png" href="/assets/amz.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/amz.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/amz.png" />
+    <link rel="shortcut icon" type="image/png" href="/assets/amz.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/amz.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>XLeats</title>
 
     <!-- Meta tags for social sharing -->
-    <meta property="og:title" content="XLeats">
-    <meta property="og:description" content="Powered by SmartBiz">
-    <meta property="og:image" content="/api/placeholder/1200/630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="XLeats">
-    <meta name="twitter:description" content="XLeats - Powered by SmartBiz">
+    <meta property="og:title" content="XLeats" />
+    <meta property="og:description" content="Powered by SmartBiz" />
+    <meta property="og:image" content="/api/placeholder/1200/630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="XLeats" />
+    <meta name="twitter:description" content="XLeats - Powered by SmartBiz" />
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&display=swap" rel="stylesheet" />
+
     <style>
-        .tile-confetti {
-            position: relative;
-            overflow: hidden;
-        }
+      .tile-confetti {
+        position: relative;
+        overflow: hidden;
+      }
 
-        .confetti-particle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            pointer-events: none;
-            transform: translateY(0);
-            opacity: 1;
-            transition: transform 1s ease-out, opacity 1s ease-out;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        .tile-container a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
+      .confetti-particle {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        pointer-events: none;
+        transform: translateY(0);
+        opacity: 1;
+        transition: transform 1s ease-out, opacity 1s ease-out;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .tile-container a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
 
-        /* Optional: Add hover effect to indicate clickability */
-        .tile-container a:hover {
-            cursor: pointer;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Prompt', sans-serif;
-        }
+      /* Optional: Add hover effect to indicate clickability */
+      .tile-container a:hover {
+        cursor: pointer;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Prompt", sans-serif;
+      }
 
+      :root {
+        --header-height: 70px;
+        --footer-height: 70px;
+      }
+      .hero-title,
+      .tile-name,
+      .highlight {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: white;
+        height: var(--header-height);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 clamp(1rem, 4vw, 4rem);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        position: sticky;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .logo-container {
+        width: clamp(80px, 10vw, 100px);
+        height: clamp(40px, 5vw, 50px);
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+
+      .logo-container img:hover {
+        transform: scale(1.05);
+      }
+
+      .logo-right {
+        display: flex;
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 10;
+      }
+
+      .hamburger span {
+        width: 30px;
+        height: 3px;
+        background: #2d3436;
+        border-radius: 10px;
+        transition: all 0.3s linear;
+        position: relative;
+        transform-origin: 1px;
+      }
+
+      nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: clamp(2rem, 4vw, 4rem);
+        align-items: center;
+      }
+
+      nav a {
+        color: #2d3436;
+        text-decoration: none;
+        font-size: clamp(1rem, 1.5vw, 1.15rem);
+        padding: 0.5rem 1.2rem;
+        border-radius: 4px;
+        transition: all 0.3s;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        position: relative;
+        white-space: nowrap;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 50%;
+        background-color: #2d3436;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::after {
+        width: 80%;
+      }
+
+      .partner-button {
+        background: linear-gradient(135deg, #ff9f43, #ff6b6b);
+        color: white;
+        padding: 0.7rem 1.5rem;
+        border-radius: 50px;
+        transition: all 0.3s ease, box-shadow 0.3s ease;
+        font-size: 1.1rem;
+      }
+      .partner-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 159, 67, 0.5);
+      }
+
+      /* Main Content Styles */
+      main {
+        flex: 1;
+        background-color: #f8f4e3;
+        padding: 1.5rem clamp(1rem, 2vw, 2rem);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        height: calc(100vh - var(--header-height) - var(--footer-height));
+      }
+
+      /* Hero Banner Styles */
+      .hero-banner {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 9px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        animation: fadeInUp 0.8s ease-out forwards;
+        height: auto;
+        max-height: 240px;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-content {
+        flex: 1;
+        padding: 1rem;
+      }
+
+      .hero-title {
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        color: #2d3436;
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+        line-height: 1.2;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .hero-title .highlight {
+        background: linear-gradient(135deg, #ff6b6b, #ffa502);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        font-weight: 700;
+      }
+
+      .hero-text {
+        font-size: clamp(0.9rem, 1.2vw, 1rem);
+        color: #636e72;
+        line-height: 1.6;
+      }
+
+      .hero-text,
+      .tile-name {
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: clamp(1rem, 1.2vw, 1.1rem);
+        line-height: 1.6;
+      }
+
+      .copyright,
+      .contact-info {
+        font-family: "Inter", sans-serif;
+      }
+
+      .hero-image {
+        flex: 1;
+        max-width: 400px;
+        height: 250px;
+        border-radius: 15px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      /* Tile Container Styles */
+      .tile-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: clamp(1rem, 2vw, 1.5rem);
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 clamp(1rem, 2vw, 2rem);
+      }
+
+      .tile {
+        position: relative; /* Added */
+        background: white;
+        border-radius: 9px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        aspect-ratio: 3/4;
+        height: auto;
+      }
+
+      .ribbon {
+        position: absolute;
+        top: 20px;
+        right: -39px;
+        width: 150px;
+        background-color: #ff6b6b;
+        color: white;
+        text-align: center;
+        transform: rotate(45deg);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        font-size: 0.8rem;
+        font-weight: bold;
+        padding: 5px 0;
+        z-index: 10;
+      }
+
+      .newribbon {
+        position: absolute;
+        top: 20px;
+        right: -39px;
+        width: 150px;
+        background-color: #28a745;
+        color: white;
+        text-align: center;
+        transform: rotate(45deg);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 5px 0;
+        z-index: 10;
+      }
+
+      .tile-name:hover {
+        color: #ff7664;
+      }
+
+      .tile-timer {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #2d3436;
+        margin-top: 24px;
+      }
+
+      .tile:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .tile-image {
+        height: 80%;
+        padding: 1rem;
+      }
+
+      .tile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 9px;
+        transition: all 0.3s ease;
+        opacity: 0;
+        animation: fadeIn 0.8s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .tile-name {
+        height: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 1rem; /* Balanced padding for premium spacing */
+        color: #1c1c1e; /* Deep, rich black for text */
+        letter-spacing: 0.5px; /* Subtle spacing for elegance */
+        text-align: center;
+        font-family: "Inter", "SF Pro Display", "Roboto", sans-serif; /* Premium font stack */
+        font-weight: 500; /* Refined weight for balance */
+        font-size: clamp(1rem, 1.5vw, 1.2rem); /* Adaptive font sizing */
+        line-height: 1.5; /* Comfortable line height */
+        background-color: #ffffff; /* Clean white background */
+        border-top: 1px solid #e6e6e6; /* Subtle divider line */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+        transition: all 0.3s ease-in-out; /* Smooth hover effect */
+        -webkit-font-smoothing: antialiased; /* Crisp text rendering */
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .soft-ribbon {
+        position: absolute;
+        top: 20px;
+        right: -39px;
+        width: 150px;
+        background-color: #f8f4e3;
+        color: black;
+        text-align: center;
+        transform: rotate(45deg);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 5px 0;
+        z-index: 10;
+      }
+
+      .soft-ribbon-small {
+        position: absolute;
+        top: 20px;
+        right: -39px;
+        width: 150px;
+        background-color: #f8f4e3;
+        color: black;
+        text-align: center;
+        transform: rotate(45deg);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        font-size: 0.69rem;
+        font-weight: 500;
+        padding: 5px 0;
+        z-index: 10;
+      }
+
+      /* Footer Styles */
+      footer {
+        height: var(--footer-height);
+        background-color: white;
+        color: #2d3436;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 clamp(1rem, 4vw, 4rem);
+        font-size: clamp(0.8rem, 1vw, 0.9rem);
+        box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .footer-logo {
+        width: clamp(60px, 8vw, 80px);
+        height: clamp(30px, 4vw, 40px);
+      }
+
+      .footer-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
         :root {
-            --header-height: 70px;
-            --footer-height: 70px;
-        }
-        .hero-title, .tile-name, .highlight {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
+          --header-height: auto;
+          --footer-height: auto;
         }
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-        }
-
-        /* Header Styles */
         header {
-            background-color: white;
-            height: var(--header-height);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 clamp(1rem, 4vw, 4rem);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-            position: sticky;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+          flex-direction: row;
+          padding: 1rem;
+          justify-content: space-between;
+          height: 70px;
         }
 
         .logo-container {
-            width: clamp(80px, 10vw, 100px);
-            height: clamp(40px, 5vw, 50px);
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-container img:hover {
-            transform: scale(1.05);
+          margin: 0;
         }
 
         .logo-right {
-            display: flex;
+          display: none;
         }
 
-        /* Hamburger Menu */
         .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 25px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 10;
-        }
-
-        .hamburger span {
-            width: 30px;
-            height: 3px;
-            background: #2d3436;
-            border-radius: 10px;
-            transition: all 0.3s linear;
-            position: relative;
-            transform-origin: 1px;
+          display: flex;
         }
 
         nav {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+          position: fixed;
+          top: 70px;
+          left: 0;
+          width: 100%;
+          transform: none;
+          background: white;
+          padding: 0;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease-out;
+          box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        nav.active {
+          max-height: 200px;
         }
 
         nav ul {
-            display: flex;
-            list-style: none;
-            gap: clamp(2rem, 4vw, 4rem);
-            align-items: center;
+          flex-direction: column;
+          gap: 0;
+          padding: 0;
+        }
+
+        nav ul li {
+          width: 100%;
+          text-align: center;
+          padding: 1rem 0;
+          border-bottom: 1px solid #eee;
+        }
+
+        nav ul li:last-child {
+          border-bottom: none;
         }
 
         nav a {
-            color: #2d3436;
-            text-decoration: none;
-            font-size: clamp(1rem, 1.5vw, 1.15rem);
-            padding: 0.5rem 1.2rem;
-            border-radius: 4px;
-            transition: all 0.3s;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            position: relative;
-            white-space: nowrap;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 50%;
-            background-color: #2d3436;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover::after {
-            width: 80%;
+          display: block;
+          padding: 0.5rem 0;
         }
 
         .partner-button {
-            background: linear-gradient(135deg, #ff9f43, #ff6b6b);
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border-radius: 50px;
-            transition: all 0.3s ease, box-shadow 0.3s ease;
-            font-size: 1.1rem;
-        }
-        .partner-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 159, 67, 0.5);
+          background: linear-gradient(135deg, #ff9f43, #ff6b6b);
+          border-radius: 0;
+          width: 100%;
+          text-align: center;
+          margin: 0;
         }
 
-        /* Main Content Styles */
-        main {
-            flex: 1;
-            background-color: #f8f4e3;
-            padding: 1.5rem clamp(1rem, 2vw, 2rem);
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            height: calc(100vh - var(--header-height) - var(--footer-height));
-        }
-
-        /* Hero Banner Styles */
         .hero-banner {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 9px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            animation: fadeInUp 0.8s ease-out forwards;
-            height: auto;
-            max-height: 240px;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+          flex-direction: column;
+          max-height: none;
+          padding: 1rem;
         }
 
         .hero-content {
-            flex: 1;
-            padding: 1rem;
-        }
-
-        .hero-title {
-            font-size: clamp(1.5rem, 2.5vw, 2rem);
-            color: #2d3436;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-            line-height: 1.2;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .hero-title .highlight {
-            background: linear-gradient(135deg, #ff6b6b, #ffa502);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent;
-            font-weight: 700;
-        }
-
-        .hero-text {
-            font-size: clamp(0.9rem, 1.2vw, 1rem);
-            color: #636e72;
-            line-height: 1.6;
-        }
-
-        .hero-text, .tile-name {
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            font-size: clamp(1rem, 1.2vw, 1.1rem);
-            line-height: 1.6;
-        }
-
-        .copyright, .contact-info {
-            font-family: 'Inter', sans-serif;
+          padding: 0.5rem;
+          text-align: center;
         }
 
         .hero-image {
-            flex: 1;
-            max-width: 400px;
-            height: 250px;
-            border-radius: 15px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+          max-width: 100%;
+          height: 150px;
         }
 
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        /* Tile Container Styles */
         .tile-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: clamp(1rem, 2vw, 1.5rem);
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 clamp(1rem, 2vw, 2rem);
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        footer {
+          flex-direction: column;
+          padding: 1rem;
+          gap: 0.5rem;
+          text-align: center;
+        }
+
+        .contact-info {
+          word-wrap: break-word;
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .tile {
+          aspect-ratio: 3/5; /* Consistent aspect ratio */
+          padding: 0.3rem; /* Further reduce padding */
+        }
+        .tile-image img {
+          height: 80%; /* Smaller for narrow screens */
+        }
+        .tile-image img {
+          height: 80%; /* Smaller for narrow screens */
+        }
+        .tile-container {
+          grid-template-columns: repeat(2, 1fr); /* 2 columns on small phones */
+          gap: 0.5rem; /* Minimized gap */
+        }
+        .tile-name {
+          font-size: clamp(0.8rem, 1vw, 0.9rem); /* Even smaller for mobile */
+          padding: 0.3rem; /* Tightened padding for smaller screens */
+          line-height: 1.2; /* Tighter line-spacing */
+        }
+      }
+
+      .contact-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: flex-start; /* Changed from center to flex-start */
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        overflow-y: auto; /* Enable vertical scrolling */
+        padding: 20px 0; /* Add some padding top and bottom */
+      }
+
+      .contact-popup {
+        background: white;
+        padding: 2rem; /* Increased padding */
+        border-radius: 20px; /* Slightly more rounded */
+        width: 90%;
+        max-width: 600px;
+        position: relative;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+      }
+
+      .contact-header {
+        text-align: center;
+        margin-bottom: 2.5rem; /* Increased spacing */
+      }
+
+      .contact-overlay.active {
+        opacity: 1;
+        display: flex;
+      }
+
+      .contact-overlay.active .contact-popup {
+        transform: translateY(0);
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.25rem;
+        background: none;
+        border: none;
+        font-size: 2rem; /* Increased size */
+        color: #2d3436;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 40px; /* Increased size */
+        height: 40px; /* Increased size */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 159, 67, 0.1); /* Subtle background */
+      }
+
+      .close-btn:hover {
+        background: rgba(255, 159, 67, 0.2);
+        transform: rotate(90deg);
+        color: #ff9f43;
+      }
+
+      .contact-header h2 {
+        color: #2d3436;
+        font-size: 2rem; /* Larger title */
+        margin-bottom: 0.75rem;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+      }
+
+      .contact-header p {
+        color: #636e72;
+        font-size: 1.1rem; /* Slightly larger text */
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+      }
+
+      .contact-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem; /* Increased gap */
+        max-height: none;
+      }
+
+      .contact-card {
+        padding: 1rem; /* Increased padding */
+        border-radius: 16px;
+        background: #f8f9fa;
+        transition: all 0.3s ease;
+        border: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem; /* Consistent spacing between elements */
+      }
+
+      .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+        border-color: #ff9f43;
+        background: linear-gradient(145deg, #ffffff, #f8f9fa); /* Subtle gradient */
+      }
+
+      .contact-name {
+        font-size: 1.25rem; /* Larger name */
+        font-weight: 600;
+        color: #2d3436;
+        margin-bottom: 1rem;
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid rgba(255, 159, 67, 0.2); /* Decorative underline */
+      }
+
+      .contact-info i {
+        width: 24px; /* Fixed width for icons */
+        margin-right: 1rem;
+        color: #ff9f43;
+        font-size: 1.1rem; /* Slightly larger icons */
+      }
+
+      .contact-info span {
+        flex: 1;
+        font-size: 1rem;
+      }
+
+      /* Mobile-specific styles */
+      @media (max-width: 768px) {
+        .contact-overlay {
+          align-items: flex-start;
+          padding: 10px;
         }
 
         .tile {
-            position: relative; /* Added */
-            background: white;
-            border-radius: 9px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            aspect-ratio: 3/4;
-            height: auto;
-        }
-
-        .ribbon {
-            position: absolute;
-            top: 20px;
-            right: -39px;
-            width: 150px;
-            background-color: #ff6b6b;
-            color: white;
-            text-align: center;
-            transform: rotate(45deg);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-            font-size: 0.8rem;
-            font-weight: bold;
-            padding: 5px 0;
-            z-index: 10;
-        }
-
-        .newribbon {
-            position: absolute;
-            top: 20px;
-            right: -39px;
-            width: 150px;
-            background-color: #28a745;
-            color: white;
-            text-align: center;
-            transform: rotate(45deg);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-            font-size: 0.9rem;
-            font-weight: bold;
-            padding: 5px 0;
-            z-index: 10;
-        }
-
-        .tile-name:hover {
-            color: #FF7664;
-        }
-
-        .tile-timer {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #2d3436;
-            margin-top: 24px;
-        }
-
-        .tile:hover {
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .tile-image {
-            height: 80%;
-            padding: 1rem;
+          aspect-ratio: 4/5; /* Make tiles slightly shorter */
+          padding: 0.1rem; /* Reduce padding */
         }
 
         .tile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 9px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
+          height: 100%; /* Slightly smaller images */
+          object-fit: cover; /* Ensure images scale well */
         }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
+        .tile-container {
+          grid-template-columns: repeat(2, 1fr); /* 3 columns in portrait tablets */
+          gap: 1rem; /* Reduce gap between tiles */
         }
-
         .tile-name {
-            height: 20%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.5rem 1rem; /* Balanced padding for premium spacing */
-            color: #1c1c1e; /* Deep, rich black for text */
-            letter-spacing: 0.5px; /* Subtle spacing for elegance */
-            text-align: center;
-            font-family: 'Inter', 'SF Pro Display', 'Roboto', sans-serif; /* Premium font stack */
-            font-weight: 500; /* Refined weight for balance */
-            font-size: clamp(1rem, 1.5vw, 1.2rem); /* Adaptive font sizing */
-            line-height: 1.5; /* Comfortable line height */
-            background-color: #ffffff; /* Clean white background */
-            border-top: 1px solid #e6e6e6; /* Subtle divider line */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-            transition: all 0.3s ease-in-out; /* Smooth hover effect */
-            -webkit-font-smoothing: antialiased; /* Crisp text rendering */
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .soft-ribbon {
-            position: absolute;
-            top: 20px;
-            right: -39px;
-            width: 150px;
-            background-color: #F8F4E3;
-            color: black;
-            text-align: center;
-            transform: rotate(45deg);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-            font-size: 0.8rem;
-            font-weight:500;
-            padding: 5px 0;
-            z-index: 10;
-        }
-
-        .soft-ribbon-small {
-            position: absolute;
-            top: 20px;
-            right: -39px;
-            width: 150px;
-            background-color: #F8F4E3;
-            color: black;
-            text-align: center;
-            transform: rotate(45deg);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-            font-size: 0.69rem;
-            font-weight:500;
-            padding: 5px 0;
-            z-index: 10;
-        }
-        
-
-        /* Footer Styles */
-        footer {
-            height: var(--footer-height);
-            background-color: white;
-            color: #2d3436;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 clamp(1rem, 4vw, 4rem);
-            font-size: clamp(0.8rem, 1vw, 0.9rem);
-            box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.1);
-            
-        }
-
-        .footer-logo {
-            width: clamp(60px, 8vw, 80px);
-            height: clamp(30px, 4vw, 40px);
-        }
-
-        .footer-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            :root {
-                --header-height: auto;
-                --footer-height: auto;
-            }
-
-            header {
-                flex-direction: row;
-                padding: 1rem;
-                justify-content: space-between;
-                height: 70px;
-            }
-
-            .logo-container {
-                margin: 0;
-            }
-
-            .logo-right {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            nav {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                transform: none;
-                background: white;
-                padding: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease-out;
-                box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-            }
-
-            nav.active {
-                max-height: 200px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-                padding: 0;
-            }
-
-            nav ul li {
-                width: 100%;
-                text-align: center;
-                padding: 1rem 0;
-                border-bottom: 1px solid #eee;
-            }
-
-            nav ul li:last-child {
-                border-bottom: none;
-            }
-
-            nav a {
-                display: block;
-                padding: 0.5rem 0;
-            }
-
-            .partner-button {
-                background: linear-gradient(135deg, #ff9f43, #ff6b6b);
-                border-radius: 0;
-                width: 100%;
-                text-align: center;
-                margin: 0;
-            }
-
-            .hero-banner {
-                flex-direction: column;
-                max-height: none;
-                padding: 1rem;
-            }
-
-            .hero-content {
-                padding: 0.5rem;
-                text-align: center;
-            }
-
-            .hero-image {
-                max-width: 100%;
-                height: 150px;
-            }
-
-            .tile-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            footer {
-                flex-direction: column;
-                padding: 1rem;
-                gap: 0.5rem;
-                text-align: center;
-            }
-
-            .contact-info {
-                word-wrap: break-word;
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .tile {
-                aspect-ratio: 3/5; /* Consistent aspect ratio */
-                padding: 0.3rem;   /* Further reduce padding */
-            }
-            .tile-image img {
-                height: 80%; /* Smaller for narrow screens */
-            }
-            .tile-image img {
-                height: 80%; /* Smaller for narrow screens */
-            }
-            .tile-container {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns on small phones */
-                gap: 0.5rem; /* Minimized gap */
-            }
-            .tile-name {
-                font-size: clamp(0.8rem, 1vw, 0.9rem); /* Even smaller for mobile */
-                padding: 0.3rem; /* Tightened padding for smaller screens */
-                line-height: 1.2; /* Tighter line-spacing */
-            }
-        }
-
-        .contact-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: flex-start; /* Changed from center to flex-start */
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            overflow-y: auto; /* Enable vertical scrolling */
-            padding: 20px 0; /* Add some padding top and bottom */
+          font-size: clamp(0.9rem, 1.1vw, 1rem); /* Adjust font size */
+          padding: 0.4rem; /* Slightly smaller padding */
+          line-height: 1.3; /* Adjusted line-height */
         }
 
         .contact-popup {
-            background: white;
-            padding: 2rem; /* Increased padding */
-            border-radius: 20px; /* Slightly more rounded */
-            width: 90%;
-            max-width: 600px;
-            position: relative;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
-        }
-
-        .contact-header {
-            text-align: center;
-            margin-bottom: 2.5rem; /* Increased spacing */
-        }
-
-        .contact-overlay.active {
-            opacity: 1;
-            display: flex;
-        }
-
-        .contact-overlay.active .contact-popup {
-            transform: translateY(0);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 1.25rem;
-            right: 1.25rem;
-            background: none;
-            border: none;
-            font-size: 2rem; /* Increased size */
-            color: #2d3436;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 40px; /* Increased size */
-            height: 40px; /* Increased size */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(255, 159, 67, 0.1); /* Subtle background */
-        }
-
-        .close-btn:hover {
-            background: rgba(255, 159, 67, 0.2);
-            transform: rotate(90deg);
-            color: #ff9f43;
-        }
-
-        .contact-header h2 {
-            color: #2d3436;
-            font-size: 2rem; /* Larger title */
-            margin-bottom: 0.75rem;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-        }
-
-        .contact-header p {
-            color: #636e72;
-            font-size: 1.1rem; /* Slightly larger text */
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+          background: white;
+          padding: 2rem;
+          border-radius: 20px;
+          width: 90%;
+          max-width: 600px;
+          position: relative;
+          transform: translateY(20px);
+          transition: all 0.3s ease;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+          margin: auto; /* Center horizontally */
+          margin-top: 20px; /* Add space from top */
+          margin-bottom: 20px; /* Add space at bottom */
         }
 
         .contact-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem; /* Increased gap */
-            max-height: none;
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          overflow: visible;
         }
 
         .contact-card {
-            padding: 1rem; /* Increased padding */
-            border-radius: 16px;
-            background: #f8f9fa;
-            transition: all 0.3s ease;
-            border: 1px solid #eee;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem; /* Consistent spacing between elements */
+          margin-bottom: 1rem;
         }
 
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
-            border-color: #ff9f43;
-            background: linear-gradient(145deg, #ffffff, #f8f9fa); /* Subtle gradient */
+        .contact-header {
+          margin-bottom: 1.5rem;
         }
 
-        .contact-name {
-            font-size: 1.25rem; /* Larger name */
-            font-weight: 600;
-            color: #2d3436;
-            margin-bottom: 1rem;
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid rgba(255, 159, 67, 0.2); /* Decorative underline */
+        /* Ensure body doesn't scroll when overlay is open */
+        body.overlay-open {
+          overflow: hidden;
         }
-
-        .contact-info i {
-            width: 24px; /* Fixed width for icons */
-            margin-right: 1rem;
-            color: #ff9f43;
-            font-size: 1.1rem; /* Slightly larger icons */
-        }
-
-        .contact-info span {
-            flex: 1;
-            font-size: 1rem;
-        }
-
-         /* Mobile-specific styles */
-        @media (max-width: 768px) {
-            .contact-overlay {
-                align-items: flex-start;
-                padding: 10px;
-            }
-
-            .tile {
-                aspect-ratio: 4/5; /* Make tiles slightly shorter */
-                padding: 0.1rem;   /* Reduce padding */
-            }
-
-            .tile-image img {
-                height: 100%; /* Slightly smaller images */
-                object-fit: cover; /* Ensure images scale well */
-            }
-            .tile-container {
-                grid-template-columns: repeat(2, 1fr); /* 3 columns in portrait tablets */
-                gap: 1rem; /* Reduce gap between tiles */
-           
-            }
-            .tile-name {
-                font-size: clamp(0.9rem, 1.1vw, 1rem); /* Adjust font size */
-                padding: 0.4rem; /* Slightly smaller padding */
-                line-height: 1.3; /* Adjusted line-height */
-            }
-
-            .contact-popup {
-                background: white;
-                padding: 2rem;
-                border-radius: 20px;
-                width: 90%;
-                max-width: 600px;
-                position: relative;
-                transform: translateY(20px);
-                transition: all 0.3s ease;
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-                margin: auto; /* Center horizontally */
-                margin-top: 20px; /* Add space from top */
-                margin-bottom: 20px; /* Add space at bottom */
-            }
-
-            .contact-cards {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                overflow: visible;
-            }
-
-            .contact-card {
-                margin-bottom: 1rem;
-            }
-
-            .contact-header {
-                margin-bottom: 1.5rem;
-            }
-
-            /* Ensure body doesn't scroll when overlay is open */
-            body.overlay-open {
-                overflow: hidden;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="logo-container">
-            <img src="assets/logoR.png" alt="XLeats Logo Left">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="#" class="nav-link" id="contact-trigger">Contact Us</a></li>
-                <li><a href="https://forms.gle/RLVZxv4kBpiGA5cJ9" target="_blank" class="partner-button">Partner With Us</a></li>
-            </ul>
-        </nav>
-        <div class="logo-container logo-right">
-            <img src="assets/logoL.png" alt="XLeats Logo Right">
-        </div>
-        <button class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+      <div class="logo-container">
+        <img src="assets/logoR.png" alt="XLeats Logo Left" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="#" class="nav-link" id="contact-trigger">Contact Us</a></li>
+          <li>
+            <a href="https://forms.gle/RLVZxv4kBpiGA5cJ9" target="_blank" class="partner-button">Partner With Us</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="logo-container logo-right">
+        <img src="assets/logoL.png" alt="XLeats Logo Right" />
+      </div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </header>
 
     <main>
-        <div class="hero-banner">
-            <div class="hero-content">
-                <h1 class="hero-title">Discover New <span class="highlight">Flavours</span></h1>
-                <p class="hero-text">Experience the finest cuisines with XLeats. From traditional delicacies to modern fusion, we bring you a curated selection of exceptional restaurants!</p>
-            </div>
-            <div class="hero-image">
-                <img src="assets/banner.png" alt="Featured Restaurants">
-            </div>
+      <div class="hero-banner">
+        <div class="hero-content">
+          <h1 class="hero-title">Discover New <span class="highlight">Flavours</span></h1>
+          <p class="hero-text">
+            Experience the finest cuisines with XLeats. From traditional delicacies to modern fusion, we bring you a
+            curated selection of exceptional restaurants!
+          </p>
         </div>
+        <div class="hero-image">
+          <img src="assets/banner.png" alt="Featured Restaurants" />
+        </div>
+      </div>
 
-        <div class="tile-container">
-             <a href="https://www.smartbiz.in/BrubeckBakery" target="_blank" data-eatery-id="4" class="tile">
-                <div class="soft-ribbon-small">10:30 AM - 10 PM</div>
-                    <div class="tile-image">
-                        <img src="assets/brubeck.png" alt="Restaurant 1">
-                    </div>
-                    <div class="tile-name">
-                        <span>Brubeck Bakery</span>
-                    </div>
-                </a>
-                <a href="https://www.smartbiz.in/HealthyBites" target="_blank" data-eatery-id="4" class="tile">
-                    <div class="newribbon">New!</div>
-                    <div class="tile-image">
-                        <img src="assets/HealthyBites.jpeg" alt="Restaurant 2">
-                    </div>
-                    <div class="tile-name">
-                        <span>Healthy Bites</span>
-                    </div>
-                </a>
-            <a href="https://www.smartbiz.in/FruitandFoodGuru" target="_blank" data-eatery-id="4" class="tile">
-                <div class="newribbon">New!</div>
-                <div class="tile-image">
-                    <img src="assets/fruit.jpeg" alt="Restaurant 3">
-                </div>
-                <div class="tile-name">
-                    <span>Fruit & Food Guru</span>
-                </div>
-            </a>
-            <a href="https://www.smartbiz.in/parathetepurje" target="_blank" data-eatery-id="4" class="tile">
-                <div class="soft-ribbon">10 AM - 5 PM</div>
-                <div class="tile-image">
-                    <img src="assets/parathe.png" alt="Restaurant 4">
-                </div>
-                <div class="tile-name">
-                    <span>Parathe Te Purje</span>
-                </div>
-            </a>
-            <a href="https://www.smartbiz.in/bishuda" target="_blank" data-eatery-id="1" class="tile">
-                <div class="soft-ribbon">11 PM - 4 AM</div>
-                <div class="tile-image">
-                    <img src="assets/bishu.jpeg" alt="Restaurant 5">
-                </div>
-                <div class="tile-name">
-                    <span>Bishu Da's</span>
-                </div>
-            </a>
-            <a href="https://www.smartbiz.in/AiyersCafeXLRI" target="_blank" data-eatery-id="1" class="tile">
-                <div class="soft-ribbon">9 AM - 9 PM</div>
-                <div class="tile-image">
-                    <img src="assets/Aiyers.jpg" alt="Restaurant 6">
-                </div>
-                <div class="tile-name">
-                    <span>Aiyer's</span>
-                </div>
-            </a>
-            <a href="https://www.smartbiz.in/cafejampotXLRI" target="_blank" data-eatery-id="2" class="tile">
-                <div class="soft-ribbon">7 PM - 3 AM</div>
-                <div class="tile-image">
-                    <img src="assets/jampot.png" alt="Restaurant 7">
-                </div>
-                <div class="tile-name">
-                    <span>Café Jampot</span>
-                </div>
-            </a>
-            <a href="https://www.smartbiz.in/JaiMaaFoodDrinkZone" target="_blank" data-eatery-id="3" class="tile">
-                <div class="soft-ribbon">7 PM - 4 AM</div>
-                <div class="tile-image">
-                    <img src="assets/Jai Maa.jpeg" alt="Restaurant 8">
-                </div>
-                <div class="tile-name">
-                <span>Jai Maa</span>
-                </div>
-            </a>
-            <a href="https://www.smartbiz.in/DadusCanteen" target="_blank" data-eatery-id="1" class="tile">
-                <div class="ribbon">Opening Soon!</div>
-                <div class="tile-image">
-                    <img src="assets/Dadus.png" alt="Restaurant 9">
-                </div>
-                <div class="tile-name">
-                    <span>Dadu's Canteen</span>
-                </div>
-            </a>
-        </div>        
+      <div class="tile-container">
+        <a
+          href="https://www.smartbiz.in/BrubeckBakery"
+          target="_blank"
+          data-eatery-id="4"
+          class="tile"
+          onclick="gtag('event', 'click_brubeck_bakery', {
+      'event_category': 'Navigation',
+      'event_label': 'Brubeck Bakery',
+      'value': 1
+   });"
+        >
+          <div class="soft-ribbon-small">10:30 AM - 10 PM</div>
+          <div class="tile-image">
+            <img src="assets/brubeck.png" alt="Restaurant 1" />
+          </div>
+          <div class="tile-name">
+            <span>Brubeck Bakery</span>
+          </div>
+        </a>
+        <a
+          href="https://www.smartbiz.in/HealthyBites"
+          target="_blank"
+          data-eatery-id="4"
+          class="tile"
+          onclick="gtag('event', 'click_healthy_bites', {
+      'event_category': 'Navigation',
+      'event_label': 'Healthy Bites',
+      'value': 1
+   });"
+        >
+          <div class="newribbon">New!</div>
+          <div class="tile-image">
+            <img src="assets/HealthyBites.jpeg" alt="Restaurant 2" />
+          </div>
+          <div class="tile-name">
+            <span>Healthy Bites</span>
+          </div>
+        </a>
+        <a
+          href="https://www.smartbiz.in/FruitandFoodGuru"
+          target="_blank"
+          data-eatery-id="4"
+          class="tile"
+          onclick="gtag('event', 'click_fruit_and_food_guru', {
+      'event_category': 'Navigation',
+      'event_label': 'Fruit and Food Guru',
+      'value': 1
+   });"
+        >
+          <div class="newribbon">New!</div>
+          <div class="tile-image">
+            <img src="assets/fruit.jpeg" alt="Restaurant 3" />
+          </div>
+          <div class="tile-name">
+            <span>Fruit & Food Guru</span>
+          </div>
+        </a>
+        <a
+          href="https://www.smartbiz.in/parathetepurje"
+          target="_blank"
+          data-eatery-id="4"
+          class="tile"
+          onclick="gtag('event', 'click_parathe_te_purje', {
+      'event_category': 'Navigation',
+      'event_label': 'Parathe Te Purje',
+      'value': 1
+   });"
+        >
+          <div class="soft-ribbon">10 AM - 5 PM</div>
+          <div class="tile-image">
+            <img src="assets/parathe.png" alt="Restaurant 4" />
+          </div>
+          <div class="tile-name">
+            <span>Parathe Te Purje</span>
+          </div>
+        </a>
+        <a
+          href="https://www.smartbiz.in/bishuda"
+          target="_blank"
+          data-eatery-id="1"
+          class="tile"
+          onclick="gtag('event', 'click_bishu_da', {
+      'event_category': 'Navigation',
+      'event_label': 'Bishu Da',
+      'value': 1
+   });"
+        >
+          <div class="soft-ribbon">11 PM - 4 AM</div>
+          <div class="tile-image">
+            <img src="assets/bishu.jpeg" alt="Restaurant 5" />
+          </div>
+          <div class="tile-name">
+            <span>Bishu Da's</span>
+          </div>
+        </a>
+        <a
+          href="https://www.smartbiz.in/AiyersCafeXLRI"
+          target="_blank"
+          data-eatery-id="1"
+          class="tile"
+          onclick="gtag('event', 'click_aiyers', {
+      'event_category': 'Navigation',
+      'event_label': 'Aiyers',
+      'value': 1
+   });"
+        >
+          <div class="soft-ribbon">9 AM - 9 PM</div>
+          <div class="tile-image">
+            <img src="assets/Aiyers.jpg" alt="Restaurant 6" />
+          </div>
+          <div class="tile-name">
+            <span>Aiyer's</span>
+          </div>
+        </a>
+        <a
+          href="https://www.smartbiz.in/cafejampotXLRI"
+          target="_blank"
+          data-eatery-id="2"
+          class="tile"
+          onclick="gtag('event', 'click_cafe_jampot', {
+      'event_category': 'Navigation',
+      'event_label': 'Cafe Jampot',
+      'value': 1
+   });"
+        >
+          <div class="soft-ribbon">7 PM - 3 AM</div>
+          <div class="tile-image">
+            <img src="assets/jampot.png" alt="Restaurant 7" />
+          </div>
+          <div class="tile-name">
+            <span>Café Jampot</span>
+          </div>
+        </a>
+        <a
+          href="https://www.smartbiz.in/JaiMaaFoodDrinkZone"
+          target="_blank"
+          data-eatery-id="3"
+          class="tile"
+          onclick="gtag('event', 'click_jai_maa_food_drink_zone', {
+      'event_category': 'Navigation',
+      'event_label': 'Jai Maa Food Drink Zone',
+      'value': 1
+   });"
+        >
+          <div class="soft-ribbon">7 PM - 4 AM</div>
+          <div class="tile-image">
+            <img src="assets/Jai Maa.jpeg" alt="Restaurant 8" />
+          </div>
+          <div class="tile-name">
+            <span>Jai Maa</span>
+          </div>
+        </a>
+        <a
+          href="https://www.smartbiz.in/DadusCanteen"
+          target="_blank"
+          data-eatery-id="1"
+          class="tile"
+          onclick="gtag('event', 'click_dadus_canteen', {
+      'event_category': 'Navigation',
+      'event_label': 'Dadus Canteen',
+      'value': 1
+   });"
+        >
+          <div class="ribbon">Opening Soon!</div>
+          <div class="tile-image">
+            <img src="assets/Dadus.png" alt="Restaurant 9" />
+          </div>
+          <div class="tile-name">
+            <span>Dadu's Canteen</span>
+          </div>
+        </a>
+      </div>
     </main>
 
     <footer>
-        <div class="footer-logo">
-            <img src="assets/amz.png" alt="Footer Logo">
-        </div>
-        <div class="contact-info">
-            <p>Write to us at:  
-                <a href="mailto:xlrismartbiz@gmail.com" style="color: #0073e6; text-decoration: none;">xlrismartbiz@gmail.com</a> | <a href="mailto:krishna.murthy@astra.xlri.ac.in" style="color: #0073e6; text-decoration: none;">krishna.murthy@astra.xlri.ac.in</a>
-            </p>
-        </div>
-        <div class="copyright">
-            © 2024 Amazon Inc. All rights reserved.
-        </div>
+      <div class="footer-logo">
+        <img src="assets/amz.png" alt="Footer Logo" />
+      </div>
+      <div class="contact-info">
+        <p>
+          Write to us at:
+          <a href="mailto:xlrismartbiz@gmail.com" style="color: #0073e6; text-decoration: none"
+            >xlrismartbiz@gmail.com</a
+          >
+          |
+          <a href="mailto:krishna.murthy@astra.xlri.ac.in" style="color: #0073e6; text-decoration: none"
+            >krishna.murthy@astra.xlri.ac.in</a
+          >
+        </p>
+      </div>
+      <div class="copyright">© 2024 Amazon Inc. All rights reserved.</div>
     </footer>
 
-<script>
-    window.onload = function() {
-            const savedStatuses = localStorage.getItem('eateryStatuses');
-            if (savedStatuses) {
-                const statuses = JSON.parse(savedStatuses);
-                Object.entries(statuses).forEach(([id, isActive]) => {
-                    if (!isActive) {
-                        const eateryElement = document.querySelector(`[data-eatery-id="${id}"]`);
-                        if (eateryElement) {
-                            eateryElement.style.display = 'none';
-                        }
-                    }
-                });
+    <script>
+      window.onload = function () {
+        const savedStatuses = localStorage.getItem("eateryStatuses");
+        if (savedStatuses) {
+          const statuses = JSON.parse(savedStatuses);
+          Object.entries(statuses).forEach(([id, isActive]) => {
+            if (!isActive) {
+              const eateryElement = document.querySelector(`[data-eatery-id="${id}"]`);
+              if (eateryElement) {
+                eateryElement.style.display = "none";
+              }
             }
-        };
+          });
+        }
+      };
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hamburger menu code
-            const hamburger = document.querySelector('.hamburger');
-            const nav = document.querySelector('nav');
+      document.addEventListener("DOMContentLoaded", function () {
+        // Hamburger menu code
+        const hamburger = document.querySelector(".hamburger");
+        const nav = document.querySelector("nav");
 
-            hamburger.addEventListener('click', function() {
-                nav.classList.toggle('active');
-                
-                // Animate hamburger icon
-                const spans = this.querySelectorAll('span');
-                spans.forEach(span => span.classList.toggle('active'));
-            });
+        hamburger.addEventListener("click", function () {
+          nav.classList.toggle("active");
 
-            // Contact popup functionality
-            const contactTrigger = document.getElementById('contact-trigger');
-            const contactOverlay = document.getElementById('contact-overlay');
-            
-            if (contactTrigger && contactOverlay) {
-                const closeBtn = contactOverlay.querySelector('.close-btn');
-
-                // Adding click event to contact trigger
-                contactTrigger.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();  // Prevent event bubbling
-                    contactOverlay.classList.add('active');
-                    document.body.classList.add('overlay-open');
-                });
-
-                // Close button functionality
-                if (closeBtn) {
-                    closeBtn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        contactOverlay.classList.remove('active');
-                        document.body.classList.remove('overlay-open'); 
-                    });
-                }
-
-                // Close on outside click
-                contactOverlay.addEventListener('click', function(e) {
-                    if (e.target === contactOverlay) {
-                        contactOverlay.classList.remove('active');
-                        document.body.classList.remove('overlay-open'); 
-                    }
-                });
-
-                // Close on ESC key
-                document.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape' && contactOverlay.classList.contains('active')) {
-                        contactOverlay.classList.remove('active');
-                        document.body.classList.remove('overlay-open'); 
-                    }
-                });
-            } else {
-                console.error('Contact trigger or overlay elements not found!');
-            }
-
-            // Function to update Dadu's timer
-            function updateDadusTimer() {
-                const now = new Date();
-                const targetTime = new Date();
-                targetTime.setHours(23, 0, 0, 0); // 11pm
-
-                if (now > targetTime) {
-                    targetTime.setDate(targetTime.getDate() + 1);
-                }
-
-                const timeDifference = targetTime - now;
-
-                const hours = Math.floor((timeDifference) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-                const timerElement = document.getElementById("dadus-timer");
-
-                if (timerElement) timerElement.innerText = `Launching in ${hours}h ${minutes}m ${seconds}s`;
-
-                setTimeout(updateDadusTimer, 1000);
-            }
-
-            updateDadusTimer();
-
-            // Confetti effect for Bishu Da's tile
-            const bishudaTile = document.querySelector('[href*="bishuda"]');
-                
-            if (bishudaTile2) {
-                bishudaTile.classList.add('tile-confetti');
-
-                bishudaTile.addEventListener('mouseenter', (e) => {
-                    const tile = e.currentTarget;
-                    const colors = [
-                        '#FF6B6B', '#4ECDC4', '#FFD93D', 
-                        '#6A5ACD', '#FF9F43', '#2ECC71'
-                    ];
-
-                    // Remove existing confetti
-                    tile.querySelectorAll('.confetti-particle').forEach(el => el.remove());
-
-                    // Generate confetti
-                    for (let i = 0; i < 30; i++) {
-                        const confetti = document.createElement('div');
-                        confetti.classList.add('confetti-particle');
-                        
-                        // Random position
-                        const x = Math.random() * tile.offsetWidth;
-                        const y = Math.random() * tile.offsetHeight;
-                        
-                        // Random color
-                        const color = colors[Math.floor(Math.random() * colors.length)];
-                        
-                        confetti.style.left = `${x}px`;
-                        confetti.style.top = `${y}px`;
-                        confetti.style.backgroundColor = color;
-                        
-                        tile.appendChild(confetti);
-
-                        // Animate
-                        requestAnimationFrame(() => {
-                            confetti.style.transform = `translateY(-${tile.offsetHeight * 2}px) rotate(${Math.random() * 360}deg)`;
-                            confetti.style.opacity = '0';
-                        });
-
-                        // Remove after animation
-                        setTimeout(() => {
-                            confetti.remove();
-                        }, 1000);
-                    }
-                });
-            }
+          // Animate hamburger icon
+          const spans = this.querySelectorAll("span");
+          spans.forEach((span) => span.classList.toggle("active"));
         });
-</script>
+
+        // Contact popup functionality
+        const contactTrigger = document.getElementById("contact-trigger");
+        const contactOverlay = document.getElementById("contact-overlay");
+
+        if (contactTrigger && contactOverlay) {
+          const closeBtn = contactOverlay.querySelector(".close-btn");
+
+          // Adding click event to contact trigger
+          contactTrigger.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation(); // Prevent event bubbling
+            contactOverlay.classList.add("active");
+            document.body.classList.add("overlay-open");
+          });
+
+          // Close button functionality
+          if (closeBtn) {
+            closeBtn.addEventListener("click", function (e) {
+              e.preventDefault();
+              contactOverlay.classList.remove("active");
+              document.body.classList.remove("overlay-open");
+            });
+          }
+
+          // Close on outside click
+          contactOverlay.addEventListener("click", function (e) {
+            if (e.target === contactOverlay) {
+              contactOverlay.classList.remove("active");
+              document.body.classList.remove("overlay-open");
+            }
+          });
+
+          // Close on ESC key
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && contactOverlay.classList.contains("active")) {
+              contactOverlay.classList.remove("active");
+              document.body.classList.remove("overlay-open");
+            }
+          });
+        } else {
+          console.error("Contact trigger or overlay elements not found!");
+        }
+
+        // Function to update Dadu's timer
+        function updateDadusTimer() {
+          const now = new Date();
+          const targetTime = new Date();
+          targetTime.setHours(23, 0, 0, 0); // 11pm
+
+          if (now > targetTime) {
+            targetTime.setDate(targetTime.getDate() + 1);
+          }
+
+          const timeDifference = targetTime - now;
+
+          const hours = Math.floor(timeDifference / (1000 * 60 * 60));
+          const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+          const timerElement = document.getElementById("dadus-timer");
+
+          if (timerElement) timerElement.innerText = `Launching in ${hours}h ${minutes}m ${seconds}s`;
+
+          setTimeout(updateDadusTimer, 1000);
+        }
+
+        updateDadusTimer();
+
+        // Confetti effect for Bishu Da's tile
+        const bishudaTile = document.querySelector('[href*="bishuda"]');
+
+        if (bishudaTile2) {
+          bishudaTile.classList.add("tile-confetti");
+
+          bishudaTile.addEventListener("mouseenter", (e) => {
+            const tile = e.currentTarget;
+            const colors = ["#FF6B6B", "#4ECDC4", "#FFD93D", "#6A5ACD", "#FF9F43", "#2ECC71"];
+
+            // Remove existing confetti
+            tile.querySelectorAll(".confetti-particle").forEach((el) => el.remove());
+
+            // Generate confetti
+            for (let i = 0; i < 30; i++) {
+              const confetti = document.createElement("div");
+              confetti.classList.add("confetti-particle");
+
+              // Random position
+              const x = Math.random() * tile.offsetWidth;
+              const y = Math.random() * tile.offsetHeight;
+
+              // Random color
+              const color = colors[Math.floor(Math.random() * colors.length)];
+
+              confetti.style.left = `${x}px`;
+              confetti.style.top = `${y}px`;
+              confetti.style.backgroundColor = color;
+
+              tile.appendChild(confetti);
+
+              // Animate
+              requestAnimationFrame(() => {
+                confetti.style.transform = `translateY(-${tile.offsetHeight * 2}px) rotate(${Math.random() * 360}deg)`;
+                confetti.style.opacity = "0";
+              });
+
+              // Remove after animation
+              setTimeout(() => {
+                confetti.remove();
+              }, 1000);
+            }
+          });
+        }
+      });
+    </script>
     <div class="contact-overlay" id="contact-overlay">
-        <div class="contact-popup">
-            <button class="close-btn">&times;</button>
-            <div class="contact-header">
-                <h2>Get in Touch</h2>
-                <p>We'd love to hear from you. Please reach out to our team.</p>
-            </div>
-            <div class="contact-cards">
-                <div class="contact-card">
-                    <div class="contact-name">Rohit Kumar AS</div>
-                    <div class="contact-info">
-                        <i class="fas fa-phone"></i>
-                        <span>+91 94495 6950</span>
-                    </div>
-                    <div class="contact-info">
-                        <i class="fas fa-envelope"></i>
-                        <span>b23095@astra.xlri.ac.in</span>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-name">Richa Shukla</div>
-                    <div class="contact-info">
-                        <i class="fas fa-phone"></i>
-                        <span>+91 70546 44911</span>
-                    </div>
-                    <div class="contact-info">
-                        <i class="fas fa-envelope"></i>
-                        <span>b23211@astra.xlri.ac.in</span>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-name">C V Krishna Murthy</div>
-                    <div class="contact-info">
-                        <i class="fas fa-phone"></i>
-                        <span>+91 82491 80212</span>
-                    </div>
-                    <div class="contact-info">
-                        <i class="fas fa-envelope"></i>
-                        <span>b23072@astra.xlri.ac.in</span>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-name">Amit Singh Majila</div>
-                    <div class="contact-info">
-                        <i class="fas fa-phone"></i>
-                        <span>+91 83605 71186</span>
-                    </div>
-                    <div class="contact-info">
-                        <i class="fas fa-envelope"></i>
-                        <span>b23009@astra.xlri.ac.in</span>
-                    </div>
-                </div>
-            </div>
+      <div class="contact-popup">
+        <button class="close-btn">&times;</button>
+        <div class="contact-header">
+          <h2>Get in Touch</h2>
+          <p>We'd love to hear from you. Please reach out to our team.</p>
         </div>
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-name">Rohit Kumar AS</div>
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <span>+91 94495 6950</span>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <span>b23095@astra.xlri.ac.in</span>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-name">Richa Shukla</div>
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <span>+91 70546 44911</span>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <span>b23211@astra.xlri.ac.in</span>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-name">C V Krishna Murthy</div>
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <span>+91 82491 80212</span>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <span>b23072@astra.xlri.ac.in</span>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-name">Amit Singh Majila</div>
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <span>+91 83605 71186</span>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <span>b23009@astra.xlri.ac.in</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
